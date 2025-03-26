@@ -1,0 +1,74 @@
+:root {
+    --font-primary:'Courier New', Courier, monospace ;
+
+}
+
+body {
+    background-color: rgb(219, 219, 219);
+}
+
+
+
+.title-1 {
+    font-family: var(--font-primary);
+    text-align: center;
+    font-weight: 900;
+}
+
+.link-lista {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-style: normal;
+}
+
+.lista-navegacao {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+}
+
+
+.section-numero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-main {
+    font-family: var(--font-primary);
+    font-weight: bold;
+    height: 30px;
+    width: 230px;
+    border-radius: 10px;
+    text-align: center;
+    outline: none;
+    border-radius: 20px;
+    border-color: rgb(219, 219, 219);
+}
+
+.section-soma{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: var(--font-primary);
+    font-size: 18px;
+}
+
+.input-main::-webkit-inner-spin-button,
+.input-main::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.button-main {
+    font-family: var(--font-primary);
+    height: 40px;
+    width: 120px;
+    border-color: rgb(219, 219, 219);
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+

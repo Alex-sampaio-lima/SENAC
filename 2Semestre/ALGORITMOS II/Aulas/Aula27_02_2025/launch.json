@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "java",
+        "request": "launch",
+        "mainClass": "Exercicio02",
+        "console": "internalConsole",
+        "cwd": "${workspaceFolder}",
+        "args": []
+      }
+    ]
+  }
+  
