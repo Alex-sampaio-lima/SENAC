@@ -1,4 +1,5 @@
-import { log } from 'console';
+// @ts-ignore
+
 import prompt from 'prompt-sync';
 
 const ler = prompt();
@@ -43,14 +44,6 @@ const ler = prompt();
 // let total: number = (qtdPequeno * precoP + qtdMedio * precoM + qtdGrande * precoG);
 
 // console.log(`Total à pagar é ${total.toFixed(1)}`);
-
-
-
-
-
-
-
-
 
 
 
@@ -248,11 +241,41 @@ const ler = prompt();
 
 // Ex2
 
-let tamanhoDoArray: number = 0;
-let vetor: number[] = new Array[tamanhoDoArray];
+
+
+let tamanhoDoArray: number = Number(ler('Informe o tamanho do array: '));
+let vetor: number[] = new Array(tamanhoDoArray);
+
+console.log();
+
+let verificaCrescente: boolean = true;
+let verificaDecrescente: boolean = true;
 
 for (let i = 0; i < vetor.length; i++) {
-    console.log(vetor[i]);
+    vetor[i] = Number(ler('Informe os valores do array: '));
+}
+
+for (let i = 0; i < vetor.length - 1; i++) {
+    let proximoIndice = vetor[i + 1];
+    let valorMaisUm = vetor[i] + 1;
+    let valorMenosUm = vetor[i] - 1;
+
+    if (valorMaisUm != proximoIndice) {
+        verificaCrescente = false;
+    }
+
+    if (valorMenosUm != proximoIndice) {
+        verificaDecrescente = false;
+    }
+}
+
+console.log('\nOrganização dos elementos: ');
+if (verificaCrescente) {
+    console.log('Ordem Crescente!\n')
+} else if (verificaDecrescente) {
+    console.log('Ordem Descrescente!\n')
+} else {
+    console.log('Desordenados!\n');
 }
 
 

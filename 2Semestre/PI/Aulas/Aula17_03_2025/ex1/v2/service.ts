@@ -179,7 +179,7 @@ export function desenharQuadrado(numeroDoQuadrado: number): void {
 // Ex1
 
 export function arrayDobro(vetor: number[]): void {
-    
+
     console.log("Array Inicial: ");
     vetor.forEach(item => {
         process.stdout.write(`${item}` + " ");
@@ -196,3 +196,34 @@ export function arrayDobro(vetor: number[]): void {
 // Ex2
 
 
+export function numerosOrdenados(vetor: number[]): string {
+
+    let verificaCrescente: boolean = true;
+    let verificaDecrescente: boolean = true;
+    let situacao: string = '';
+
+    for (let i = 0; i < vetor.length - 1; i++) {
+        let proximoIndice = vetor[i + 1];
+        let valorMaisUm = vetor[i] + 1;
+        let valorMenosUm = vetor[i] - 1;
+
+        if (valorMaisUm != proximoIndice) {
+            verificaCrescente = false;
+        }
+
+        if (valorMenosUm != proximoIndice) {
+            verificaDecrescente = false;
+        }
+    }
+
+
+    if (verificaCrescente) {
+        situacao = 'Ordem Crescente!\n'
+    } else if (verificaDecrescente) {
+        situacao = 'Ordem Descrescente!\n';
+    } else {
+        situacao = 'Desordenados!\n'
+    }
+
+    return situacao;
+}

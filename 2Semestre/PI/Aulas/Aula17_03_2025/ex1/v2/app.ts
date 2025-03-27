@@ -1,6 +1,6 @@
-import { arrayDobro, avaliarSituacao, calculaNaturais, calcularDobro, calcularEntrada, calcularMedia, calcularNumero, calcularPrecoAcai, corResultante, desenharQuadrado, diaSemana, vestibular, vetorRegressivo } from "./service.ts";
-
+// @ts-ignore
 import prompt from "prompt-sync";
+import { arrayDobro, avaliarSituacao, calculaNaturais, calcularDobro, calcularEntrada, calcularMedia, calcularNumero, calcularPrecoAcai, corResultante, desenharQuadrado, diaSemana, numerosOrdenados, vestibular, vetorRegressivo } from "./service";
 
 const ler = prompt();
 
@@ -120,16 +120,24 @@ const ler = prompt();
 
 // Ex1
 
-let tamanhoDoArray: number = Number(ler('Informe a quantidade de números a serem armazendos: '));
-let vetor: number[] = new Array(tamanhoDoArray);
+// let tamanhoDoArray: number = Number(ler('Informe a quantidade de números a serem armazendos: '));
+// let vetor: number[] = new Array(tamanhoDoArray);
 
-for (let i = 0; i < vetor.length; i++) {
-    vetor[i] = Number(ler());
-}
+// for (let i = 0; i < vetor.length; i++) {
+//     vetor[i] = Number(ler());
+// }
 
-arrayDobro(vetor);
+// arrayDobro(vetor);
 
 // Ex2
+
+const tamanhoDoArray: number = Number(ler('Informe o tamanho do array: '));
+const vetor: number[] = new Array(tamanhoDoArray);
+
+console.log('\nOrganização dos elementos: ');
+numerosOrdenados(vetor);
+
+
 
 
 
