@@ -1,12 +1,19 @@
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class ExemploBubbleSort {
 
     public static void main(String[] args) {
+        Scanner read = new Scanner(System.in);
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Informe o valor do meu ovo: ");
+            int a = read.nextInt();
+        }
         int[] v = gerarVetor(20);
         bubbleSort(v);
         System.out.println(Arrays.toString(v));
+        read.close();
     }
 
     public static boolean ehPar(int n) {
@@ -14,11 +21,11 @@ public class ExemploBubbleSort {
     }
 
     public static void bubbleSort(int[] v) {
-        int aux;
+        int aux = 0;
         for (int i = 0; i < v.length - 1; i++) {
             for (int j = 0; j < v.length - 1 - i; j++) {
-                if (!ehPar(v[j]) && ehPar(v[j+1])) {
-                    troca(v, j, j+1);
+                if (!ehPar(v[j]) && ehPar(v[j + 1])) {
+                    troca(v, j, j + 1);
                 }
             }
         }
@@ -39,4 +46,3 @@ public class ExemploBubbleSort {
         return vetor;
     }
 }
-

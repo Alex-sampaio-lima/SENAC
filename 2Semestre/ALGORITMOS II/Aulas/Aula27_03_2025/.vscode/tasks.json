@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Rodar Java",
+        "type": "shell",
+        "command": "javac ExemploBubbleSort.java && java ExemploBubbleSort",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
+  }
+  
