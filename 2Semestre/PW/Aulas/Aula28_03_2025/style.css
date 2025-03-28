@@ -1,0 +1,54 @@
+.button {
+    /* atributos para o outline-stype none, solid, dotted, dashed, double */
+    outline-style: double;
+    outline-color: red;
+    outline-width: 6px;
+    border: solid black 2px;
+    outline-offset: 4px;
+    margin-bottom: 50px;
+}
+
+.testeInput:focus {
+    display: block;
+    outline: 3px solid green;
+    outline-width: 6px;
+}
+
+.div-container {
+    /* visibility: hidden; Aqui o elemento ainda existe */
+    /* display: none; Aqui não */
+    /* display: block; */
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* border: 1px solid black; */
+    display: flex;
+    width: 400px;
+    height: 100px;
+}
+
+span {
+    position: absolute;
+    top: 50px;
+    left: 100px;
+}
+
+.div-01 {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    background-color: lightgray;
+}
+
+.div-02 {
+    width: 200px;
+    height: 100px;
+    overflow: scroll;
+    background-color: lightblue;
+}
+
+.div-03 {
+    width: 200px;
+    height: 300px;
+    overflow: auto;
+    background-color: lightblue;
+}
