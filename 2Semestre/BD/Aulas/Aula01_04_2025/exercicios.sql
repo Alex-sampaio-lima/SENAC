@@ -1,4 +1,4 @@
--- Active: 1742298205607@@127.0.0.1@3306@sakila
+-- Active: 1727986491233@@127.0.0.1@3306@sakila
 
 -- 1 - Criar uma procedure para gerar o valor total gasto por cliente
 -- imprima a comissão de cada gerente sendo 5% sobre o valor pago
@@ -16,13 +16,13 @@ GROUP BY
     p.staff_id
 ORDER BY p.amount DESC;
 
-CREATE PROCEDURE valor_total_cliente_comissao()
-BEGIN
+-- CREATE PROCEDURE valor_total_cliente_comissao()
+-- BEGIN
     SELECT p.customer_id as Cod, c.first_name as Cliente, p.staff_id as 'Gerente', SUM(p.amount) as 'Valor Total', FORMAT((SUM(p.amount) * 0.05),  2) as 'Comissão do Gerente'
     FROM payment as p
     INNER JOIN customer as c USING (customer_id)
     GROUP BY customer_id, staff_id;
-END;
+-- END;
 
 DROP PROCEDURE valor_total_cliente_comissao;
 
