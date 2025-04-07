@@ -37,17 +37,13 @@ END;
 CALL valor_gasto();
 
 
-
 -- 2 - Construa uma função para incluir endereço completo de um cliente
 SELECT * FROM customer;
-
-
 INSERT INTO country VALUES ('Brazil');
 
 INSERT INTO city (city, country_id ) VALUES ('São Paulo', 15);
 
 INSERT INTO address (address, district) VALUES ('Rua Asdrubal Gonçalves, 214', 'São Paulo');
-
 
 SELECT * FROM country WHERE country = 'Brazil'; 
 
