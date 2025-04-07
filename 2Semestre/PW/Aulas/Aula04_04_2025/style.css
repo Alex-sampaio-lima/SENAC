@@ -1,0 +1,31 @@
+body {
+    background: linear-gradient(to right, blue, green, yellow, pink);
+    /* background: radial-gradient(circle, blue, green); */
+    /* background: repeating-linear-gradient(90deg, blue 50%, green, orange); */
+    /* background: repeating-linear-gradient(90deg, blue 50%, green, orange); */
+}
+
+
+div:hover {
+    font-style: oblique;
+    color: white;
+    width: 100%;
+    border: solid 1px white;
+}
+
+
+a:link {
+    color: blue;
+}
+
+a:visited {
+    color: rgb(251, 255, 0);
+}
+
+a:hover {
+    color: red;
+}
+
+a:active {
+    color: yellow;
+}
