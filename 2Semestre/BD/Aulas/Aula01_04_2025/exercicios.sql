@@ -28,9 +28,16 @@ DROP PROCEDURE valor_total_cliente_comissao;
 
 CALL valor_total_cliente_comissao ();
 
+
+
+
+
+
+
+
+
+
 -- 2 - Construa uma função para incluir endereço completo de um cliente
-
-
 
 CREATE FUNCTION endereco_completo(endereco VARCHAR(255), bairro VARCHAR(255), cidade VARCHAR(255), nome_pais VARCHAR(255))
 RETURNS VARCHAR(255)
@@ -43,20 +50,27 @@ BEGIN
     DECLARE mensagem VARCHAR(255);
     SET mensagem = 'teste';
     SET local_cod = ST_GeomFromText('POINT(153.1408538 -27.6333361)');
-        INSERT INTO country (country.last_update) VALUES (cidade, pais, now());
+        INSERT INTO country (country, last_update) VALUES (nome_pais, now());
         SET pais_id = @@IDENTITY;
         INSERT INTO city (city, country_id, last_update) VALUES (cidade, pais_id, now());
         SET cidade_id = @@IDENTITY;
-        INSERT INTO address(address, district, phone, location, city_id) 
-        VALUES (endereco, bairro, '2222', local_cod, cidade_id);
+        INSERT INTO address(address, address2, district, postal_code, phone, location, city_id) 
+                    VALUES (endereco, '', bairro, '0000-0000', '2222', local_cod, cidade_id);
         RETURN mensagem;
 END;
 
-SELECT endereco_completo('Romulo', 'Rua', 'São Paulo', 'Brasil2');
-DESCRIBE address;
-
 DROP FUNCTION endereco_completo;
 
+SELECT endereco_completo('Romulo', 'Rua', 'São Paulo', 'Brasil2');
+
+SELECT * FROM address ORDER BY address_id DESC;
+
+DESC address;
+DESC city;
+
+SELECT * FROM address;
+
+DROP FUNCTION endereco_completo;
 
 ALTER TABLE address DROP INDEX location;
 
@@ -64,17 +78,7 @@ ALTER TABLE address MODIFY location GEOMETRY NULL;
 
 SELECT * FROM address;
 
-
 SHOW INDEX FROM address;
-
-
-
-
-
-
-
-
-
 
 CREATE FUNCTION cadastrar_cidade(nome VARCHAR(255), nome_pais VARCHAR(255))
 RETURNS INT
@@ -136,23 +140,115 @@ DROP FUNCTION endereco_completo;
 -- 3 - Construa uma trigger para dar baixa do empréstimo(locação) do filme
 -- que o usuário alugar(supondo que exista um campo com a quantidade, no cadastro do filme)
 
-SELECT * FROM film;
-SELECT * FROM rental;
+SELECT * FROM film ORDER BY film_id DESC;
 
-SELECT * FROM film_text;
+SELECT * FROM inventory;
+DESC rental;
 
-CREATE TRIGGER baixa_emprestimo AFTER INSERT ON film FOR EACH ROW
+CREATE FUNCTION valor_valido(qtd INT)
+RETURNS VARCHAR(255)
+DETERMINISTIC
 BEGIN
-    UPDATE film SET 
+    DECLARE mensagem VARCHAR(255);
+
+    IF qtd = 0 THEN
+        SET mensagem = 'Operação inválida, nenhum filme foi alugado ainda!';
+    END IF;
+    RETURN mensagem;
 END;
+
+SELECT film.film_id, valor_valido(film.qtd) AS 'Verificador' FROM film;
+
+
+CREATE TRIGGER baixa_emprestimo AFTER INSERT ON rental FOR EACH ROW
+BEGIN
+    DECLARE id_Do_Filme_No_Inventory INT;
+
+    SELECT film_id INTO id_Do_Filme_No_Inventory
+    FROM inventory
+    WHERE inventory_id = NEW.inventory_id;
+    
+    UPDATE film AS f SET qtd = qtd - 1 WHERE f.film_id = id_Do_Filme_No_Inventory; 
+    
+    -- Outra maneira de fazer isso
+    -- UPDATE film SET qtd = qtd - 1 
+    -- WHERE film_id = (
+    --     SELECT film_id
+    --     FROM inventory
+    --     WHERE inventory_id = NEW.inventory_id;
+    -- )
+END;
+
+DROP TRIGGER baixa_emprestimo;
+
+SHOW TRIGGERS LIKE 'rental'
+
+ALTER TABLE film ADD COLUMN qtd INT DEFAULT(0);
+ALTER TABLE film DROP COLUMN qtd;
+INSERT INTO rental (inventory_id, customer_id, return_date, staff_id) 
+            VALUES (367, 220, '2025-05-27 22:42:43', 1);
+
+
+SELECT * FROM film WHERE film.qtd = 1;
+
+SELECT * FROM film WHERE film_id = 80;
+
+SELECT * FROM rental WHERE inventory_id = 80;
+DESC rental;
+
+INSERT INTO film (title, description, release_year, language_id, rental_duration, rental_rate, `length`, replacement_cost, rating, special_features) 
+           VALUES('Harry Potter', 'Um flime sobre', 2003, 1, 87, 10.99, 99, 20.32, 'PG', 'Trailers');
+
+
+SELECT * FROM film;
 
 
 -- 4 - Qual o procedimento para criar um usuário novo de acesso ao banco sakila com privilégios de extrai consultas.
 
 
+-- Criando usuário
+CREATE USER 'alek'@'localhost' IDENTIFIED BY '1010';
+
+-- Concedendo permissão para o usuário
+GRANT SELECT ON sakila.* TO 'alek'@'localhost';
+
+-- Rodar o Flush Privilegies para forçar o MySQL a recarregar as permissões.
+FLUSH PRIVILEGES;
+
+
+
+
+-- Ver todos os usuários existentes;
+SELECT user, host FROM mysql.user;
+
+-- Verificar os privilégios do usuário;
+SHOW GRANTS FOR 'alek'@'localhost';
+
+-- Verificar usuários com acesso ao banco sakila:
+
+SELECT user, host FROM mysql.user;
+
+
+-- Como excluir um usuário
+DROP USER 'alek'@'localhost';
+
+SELECT user, host FROM mysql.user WHERE user = 'root';
 
 
 
 
 
 
+
+
+
+-- Como copiar uma tabela
+
+CREATE TABLE ator AS SELECT * FROM actor;
+
+SELECT * FROM ator;
+
+DROP TABLE ator;
+
+-- Limpar a tabela e continuar com os atributos.
+TRUNCATE ator;
