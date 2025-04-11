@@ -209,8 +209,10 @@ SELECT * FROM film;
 -- Criando usuário
 CREATE USER 'alek'@'localhost' IDENTIFIED BY '1010';
 
+
 -- Concedendo permissão para o usuário
 GRANT SELECT ON sakila.* TO 'alek'@'localhost';
+
 
 -- Rodar o Flush Privilegies para forçar o MySQL a recarregar as permissões.
 FLUSH PRIVILEGES;
