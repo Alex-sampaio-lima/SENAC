@@ -1,4 +1,7 @@
-header {
+
+/* Header */
+
+/* header {
     display: flex;
     justify-content: center;
     margin-bottom: 0.625rem;
@@ -76,7 +79,7 @@ header {
     font-weight: 400;
     word-wrap: break-word;
     text-shadow: 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
-    background: var(--Terciary-color-gradient, linear-gradient(180deg, #41271F 0%, #A76450 100%));
+    background: linear-gradient(180deg, #41271F 0%, #A76450 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -109,7 +112,7 @@ header {
     word-wrap: break-word;
     text-shadow: 0rem 0.25rem 0.25rem rgba(0, 0, 0, 0.25);
 
-}
+} */
 
 
 main {
@@ -241,22 +244,26 @@ main {
 
 #bolos {
     /* background-image: url(../assets/Bolos/bolo-chocolate-com-morango-2.png); */
+    background-image: url(../../../../public/assets/Bolos/bolo-chocolate-com-morango-2.png);
     background-size: cover;
 }
 
 #salgados {
     /* background-image: url(../assets/Salgados/coxinha-2.jpg); */
+    background-image: url(../../../../public/assets/Salgados/coxinha-2.jpg);
     background-size: cover;
 }
 
 #kit-festa {
     /* background-image: url(../assets/KitFesta.jpg); */
+    background-image: url(../../../../public/assets/KitFesta.jpg);
 
     background-size: cover;
 }
 
 #doces {
     /* background-image: url(../assets/Doces/sonho.jpg); */
+    background-image: url(../../../../public/assets/Doces/sonho.jpg);
     background-size: cover;
 }
 
