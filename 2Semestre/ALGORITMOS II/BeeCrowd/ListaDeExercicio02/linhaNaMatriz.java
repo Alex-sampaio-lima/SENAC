@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class linha {
+public class linhaNaMatriz {
     public static void main(String[] args) {
         Scanner read = new Scanner(System.in);
         double m[][] = new double[12][12];
