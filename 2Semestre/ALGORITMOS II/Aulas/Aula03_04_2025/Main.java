@@ -30,12 +30,12 @@ public class Main {
 
     public static void ordenarUltimoElemento(int[] v) {
         System.out.println(Arrays.toString(v));
-        
+
         int x = v[v.length - 1];
         int j = v.length - 1;
         while (j > 0 && x < v[j - 1]) {
             v[j] = v[j - 1];
-            j--; 
+            j--;
         }
         v[j] = x;
 
