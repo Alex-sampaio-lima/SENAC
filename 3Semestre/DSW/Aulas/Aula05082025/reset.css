@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+li {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    text-decoration: none;
+    list-style-type: none;
+    font-size: medium;
+}

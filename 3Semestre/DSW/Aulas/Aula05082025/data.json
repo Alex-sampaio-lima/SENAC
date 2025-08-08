@@ -1,0 +1,44 @@
+{
+    "info": [
+        {
+            "nome": "Alexsander Sampaio Lima",
+            "nascimento": "14/09/2003",
+            "email": "alexsandersampaiolima12@gmail.com",
+            "telefone": "11940264105",
+            "linkedin": "https://www.linkedin.com/in/alexsander-sampaio-lima-b43219241/",
+            "github": "https://github.com/Alex-sampaio-lima"
+        }
+    ],
+    "experiencia": [
+        {
+            "cargo": "Analista de Suporte JR",
+            "empresa": "Stefanini",
+            "descricao": "Prestar suporte aos colaboradores da Amil",
+            "data": "09/06/2025"
+        }
+    ],
+    "formacao": [
+        {
+            "nomeCurso": "ADS",
+            "instituição": "SENAC - SANTO AMARO",
+            "data": "10/02/2025"
+        },
+        {
+            "nomeCurso": "Programação e lógica de programação",
+            "instituição": "Udemy",
+            "data": "20/09/2022"
+        },
+        {
+            "nomeCurso": "Inglês",
+            "instituição": "Wizard",
+            "data": "10/02/2021"
+        }
+    ],
+    "conhecimento": [
+        "Java",
+        "React",
+        "Python",
+        "JavaScript",
+        "Angular"
+    ]
+}
