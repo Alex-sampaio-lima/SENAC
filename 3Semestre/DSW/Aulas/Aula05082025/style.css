@@ -14,7 +14,7 @@ body {
     padding: 10px;
     max-width: 100%;
     height: 100%;
-    margin: 0 auto;
+    margin: 0px 0px 10px auto;
     border-radius: 20px;
 }
 
@@ -56,7 +56,8 @@ body {
     background-color: #5a8bd8;
     padding: 15px;
     font-size: 1.1rem;
-    height: 150px;
+    height: auto;
+    width: 100%;
     border-radius: 20px;
 }
 
@@ -69,28 +70,33 @@ body {
 
 .formacao {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 500px;
+    height: auto;
     background-color: #5a8bd8;
     padding: 15px;
     font-size: 1.1rem;
     border-radius: 20px;
 }
 
-.container-btn-carregar {
+.formacao-title {
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
+    align-items: center;
+    flex-direction: column;
 }
 
+/* .container-btn-carregar {} */
+
 #btn-carregar {
-    background-color: #5a8bd8;
     max-width: 100%;
     width: 100%;
     height: 40px;
     border-radius: 10px;
     padding: 2px;
-    border: 1px solid white;
+    border: 2px solid #5a8bd8;
+    color: #5a8bd8;
+    font-weight: bolder;
+    background-color: #e0e0e0;
     cursor: pointer;
 }

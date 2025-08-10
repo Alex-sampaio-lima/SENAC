@@ -2,9 +2,10 @@
     "info": [
         {
             "nome": "Alexsander Sampaio Lima",
+            "imgperfil": "assets/fotos-de-perfil-xj8jigxkai9jag4g.jpg",
             "nascimento": "14/09/2003",
             "email": "alexsandersampaiolima12@gmail.com",
-            "telefone": "11940264105",
+            "telefone": "11 94026-4105",
             "linkedin": "https://www.linkedin.com/in/alexsander-sampaio-lima-b43219241/",
             "github": "https://github.com/Alex-sampaio-lima"
         }
@@ -19,19 +20,34 @@
     ],
     "formacao": [
         {
-            "nomeCurso": "ADS",
-            "instituição": "SENAC - SANTO AMARO",
-            "data": "10/02/2025"
-        },
-        {
-            "nomeCurso": "Programação e lógica de programação",
-            "instituição": "Udemy",
-            "data": "20/09/2022"
+            "nomeCurso": "Análise e Desenvolvimento de Sistemas",
+            "instituicao": "SENAC - SANTO AMARO",
+            "data": "04/08/2025",
+            "status": "Cursando"
         },
         {
             "nomeCurso": "Inglês",
-            "instituição": "Wizard",
-            "data": "10/02/2021"
+            "instituicao": "Wizard",
+            "data": "10/02/2021",
+            "status": "Cursando"
+        },
+        {
+            "nomeCurso": "Algoritmos e Lógica de Programação 2022",
+            "instituicao": "Udemy",
+            "data": "20/09/2022",
+            "status": "Concluido"
+        },
+        {
+            "nomeCurso": "Cybersecurity - FIAP ON",
+            "instituicao": "FIAP ON",
+            "data": "10/09/2021",
+            "status": "Concluido"
+        },
+        {
+            "nomeCurso": "Sustainable Diet - UN CC: e-Learn",
+            "instituicao": "UN CC: e-Learn",
+            "data": "16/08/2022",
+            "status": "Concluido"
         }
     ],
     "conhecimento": [
@@ -39,6 +55,13 @@
         "React",
         "Python",
         "JavaScript",
-        "Angular"
+        "Angular",
+        "TypeScript",
+        "AXIOS",
+        "SQL",
+        "MONGODB",
+        "CSS",
+        "SCSS",
+        "ZOD"
     ]
 }

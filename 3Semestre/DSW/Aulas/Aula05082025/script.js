@@ -4,6 +4,16 @@ document.getElementById("btn-carregar").addEventListener("click", () => {
         .then(data => {
             const dataUser = data;
 
+            const nome = document.getElementById("nome");
+
+            nome.innerHTML = `${dataUser.info[0].nome}`;
+
+            const imgperfil = document.getElementById("imgperfil");
+
+            imgperfil.innerHTML = `
+             ${dataUser.info.map(item => `<img src="${item.imgperfil}" alt="Foto-perfil-usuario">`)}
+            `;
+
             const info = document.getElementById("info");
 
             info.innerHTML = `
@@ -27,18 +37,26 @@ document.getElementById("btn-carregar").addEventListener("click", () => {
                     <p><strong>Empresa:</strong> ${item.empresa}</p>
                     <p><strong>Descrição:</strong> ${item.descricao}</p>
                     <p><strong>Data:</strong> ${item.data}</p>
-                    `)}
-                    `;
+                    `)}`;
 
             const formacao = document.getElementById("formacao");
 
             formacao.innerHTML = `
-                    <h3>Formação</h3>
-            `;
+                    <h3 class="formacao-title">Formação</h3>
+                    ${dataUser.formacao.map(item => `
+                        <p><strong>Nome do curso:</strong> ${item.nomeCurso}</p>
+                        <p><strong>Instituição:</strong> ${item.instituicao}</p>
+                        <p><strong>Data de inicio:</strong> ${item.data}</p>
+                        <p><strong>Status do curso:</strong> ${item.status}</p>
+                        `).join('')}`;
 
-            const conhecimento = document.getElementById("conhecimento").innerHTML = `
-            <h3>Conhecimento</h3>
-            
+            const conhecimento = document.getElementById("conhecimento");
+
+            conhecimento.innerHTML = `
+                        <h3 class="conhecimento-title">Conhecimento</h3>
+                        ${dataUser.conhecimento.map(item => `
+                        <p>${item}</p>   
+                        `).join('')}
             `;
 
 
