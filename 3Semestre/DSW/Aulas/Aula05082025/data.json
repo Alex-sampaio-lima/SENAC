@@ -2,12 +2,15 @@
     "info": [
         {
             "nome": "Alexsander Sampaio Lima",
-            "imgperfil": "assets/fotos-de-perfil-xj8jigxkai9jag4g.jpg",
+            "imgperfil": "assets/perfil.webp",
             "nascimento": "14/09/2003",
             "email": "alexsandersampaiolima12@gmail.com",
-            "telefone": "11 94026-4105",
+            "telefone": "(11) 94026-4105",
             "linkedin": "https://www.linkedin.com/in/alexsander-sampaio-lima-b43219241/",
-            "github": "https://github.com/Alex-sampaio-lima"
+            "github": "https://github.com/Alex-sampaio-lima",
+            "cargo": "Desenvolvedor Full-Stack",
+            "cidade": "São Paulo - SP"
+
         }
     ],
     "experiencia": [

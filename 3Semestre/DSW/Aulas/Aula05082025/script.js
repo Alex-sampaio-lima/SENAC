@@ -20,12 +20,13 @@ document.getElementById("btn-carregar").addEventListener("click", () => {
             <h3>Dados Pessoais</h3>
             ${dataUser.info.map(item => `
                 <p><strong>Nome:</strong> ${item.nome}</p>
-                <p><strong>Data nascimento:</strong> ${item.nascimento}</p>
                 <p><strong>Email:</strong> ${item.email}</p>
                 <p><strong>Telefone:</strong> ${item.telefone}</p>
+                <p><strong>Cargo:</strong> ${item.cargo}</p>
+                <p><strong>Cidade:</strong> ${item.cidade}</p>
+                <p><strong>Data nascimento:</strong> ${item.nascimento}</p>
+                <p><strong>Cidade:</strong> ${item.cidade}</p>
                 <p><strong>Linkedin:</strong> ${item.linkedin}</p>
-                <p><strong>Github:</strong> ${item.github}</p>
-                
                 `)}`;
 
             const experiencia = document.getElementById("experiencia");
@@ -48,6 +49,7 @@ document.getElementById("btn-carregar").addEventListener("click", () => {
                         <p><strong>Instituição:</strong> ${item.instituicao}</p>
                         <p><strong>Data de inicio:</strong> ${item.data}</p>
                         <p><strong>Status do curso:</strong> ${item.status}</p>
+                        <hr/>
                         `).join('')}`;
 
             const conhecimento = document.getElementById("conhecimento");
