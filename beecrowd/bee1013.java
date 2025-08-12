@@ -1,9 +1,7 @@
 package beecrowd;
-
 import java.util.Scanner;
 
 public class bee1013 {
-
     public static void main(String[] args) {
 
         Scanner read = new Scanner(System.in);
@@ -22,6 +20,5 @@ public class bee1013 {
         maiorABC = (maiorAB + c + Math.abs(maiorAB - c)) / 2;
 
         System.out.printf("%d eh o maior", maiorABC);
-
     }
 };
