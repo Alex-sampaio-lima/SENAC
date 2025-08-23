@@ -16,10 +16,11 @@ public class Main {
             System.out.println("Digite seu e-mail principal:");
             email = read.nextLine();
 
+            System.out.println("Escolha uma das opções: ");
             System.out.println("0 - Sair");
             System.out.println("1 - Visualizar no Formato HTML");
             System.out.println("2 - Visualizar no Formato JSON");
-            System.out.print("Escolha uma das opções: ");
+            System.out.print("Opção selecionada:");
             opcoes = read.nextInt();
 
             if (opcoes == 0) {
@@ -27,7 +28,7 @@ public class Main {
                 break;
             }
 
-            String html = String.format("<!DOCTYPE html>\r\n" + //
+            String html = String.format("\n\n<!DOCTYPE html>\r\n" + //
                     "<html lang=\"en\">\r\n" + //
                     "\r\n" + //
                     "<head>\r\n" + //
@@ -62,13 +63,13 @@ public class Main {
                     "}\n", nome, email);
 
             if (opcoes == 1) {
-                System.out.println(html);
+                System.out.println("\n" + html);
             } else if (opcoes == 2) {
-                System.out.println(json);
+                System.out.println("\n" + json);
             }
 
-            System.out.println("\n\nDeseja inserir mais um nome ?\nDigite 1 para sim e 2 para não");
-            while (opcoes != 1 || opcoes != 2) {
+            System.out.println("\n\nDeseja inserir mais um nome ?\nDigite 1 para SIM\nDigite 2 para NÃO");
+            while (opcoes != 1 && opcoes != 2) {
                 opcoes = read.nextInt();
             }
 
