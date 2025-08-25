@@ -3,31 +3,30 @@ package com.example;
 import java.util.Scanner;
 
 public class Main {
+    static Scanner read = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Scanner read = new Scanner(System.in);
 
         String nome = "";
         String email = "";
         int opcoes = 0;
 
         do {
-            // System.out.println("Digite seu nome completo: ");
-            mostrarInfo("Digite seu nome completo:");
-            nome = read.nextLine();
-            System.out.println("Digite seu e-mail principal:");
-            email = read.nextLine();
+            imprimirMensagemMesmaLinha("Digite seu nome completo:");
+            nome = lerTexto();
+            imprimirMensagemMesmaLinha("\nDigite seu e-mail principal:");
+            email = lerTexto();
 
-            System.out.println("Escolha uma das opções: ");
-            System.out.println("0 - Sair");
-            System.out.println("1 - Visualizar no Formato HTML");
-            System.out.println("2 - Visualizar no Formato JSON");
-            System.out.print("Opção selecionada:\n\n");
-            opcoes = read.nextInt();
+            imprimirMensagem("\nEscolha uma das opções: ");
+            imprimirMensagem("0 - Sair");
+            imprimirMensagem("1 - Visualizar no Formato HTML");
+            imprimirMensagem("2 - Visualizar no Formato JSON");
+            imprimirMensagem("Opção selecionada:");
+            opcoes = lerNumeroInteiro();
 
-            if (opcoes == 0) {
-                System.out.println("Programa finalizado com sucesso !");
-                break;
-            }
+            opcoes = verificarNumeroInvalido(opcoes);
+
+            encerarPrograma(opcoes);
 
             String html = String.format("\n\n<!DOCTYPE html>\r\n" + //
                     "<html lang=\"en\">\r\n" + //
@@ -63,36 +62,60 @@ public class Main {
                     "    \"e-mail\": \"%s\"\r\n" + //
                     "}\n", nome, email);
 
-            if (opcoes == 1) {
-                System.out.println("\n" + html);
-            } else if (opcoes == 2) {
-                System.out.println("\n" + json);
-            }
+            verificarTipoDeFormatacao(opcoes, html, json);
 
-            System.out.println("\nDeseja inserir mais um nome ?\nDigite 1 para SIM\nDigite 2 para NÃO");
-            opcoes = read.nextInt();
-            while (opcoes != 1 && opcoes != 2) {
-                System.out.println("Número inválido, tente novamente !");
-                opcoes = read.nextInt();
-            }
+            imprimirMensagem("\nDeseja inserir mais um nome ?\nDigite 1 para SIM\nDigite 0 para NÃO");
 
-            if (opcoes == 2) {
-                System.out.println("Programa Finalizad com Sucesso !");
-                break;
-            }
+            opcoes = lerNumeroInteiro();
+
+            verificarNumeroInvalido(opcoes);
+
+            encerarPrograma(opcoes);
+
             read.nextLine();
+
         } while (opcoes != 0);
 
         read.close();
     };
 
-    public static boolean verificaNumeroInvalido(int opcoes) {
-
-        return true;
+    public static int verificarNumeroInvalido(int opcoes) {
+        while (opcoes != 1 && opcoes != 2 && opcoes != 0) {
+            System.out.println("Número inválido, tenta novamente !");
+            opcoes = read.nextInt();
+        }
+        System.out.println("Número válido !\n");
+        return opcoes;
     }
 
-    public static void mostrarInfo(String mensagem) {
+    public static void imprimirMensagem(String mensagem) {
         System.out.println(mensagem);
+    };
 
-    }
+    public static void imprimirMensagemMesmaLinha(String mensagem) {
+        System.out.print(mensagem);
+    };
+
+    public static int lerNumeroInteiro() {
+        return read.nextInt();
+    };
+
+    public static String lerTexto() {
+        return read.nextLine();
+    };
+
+    public static void encerarPrograma(int opcoes) {
+        if (opcoes == 0) {
+            System.out.println("Programa Finalizado com suceso !");
+            System.exit(0);
+        }
+    };
+
+    public static void verificarTipoDeFormatacao(int opcoes, String html, String json) {
+        if (opcoes == 1) {
+            System.out.println("\n" + html);
+        } else if (opcoes == 2) {
+            System.out.println("\n" + json);
+        }
+    };
 };
