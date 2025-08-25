@@ -24,7 +24,7 @@ public class Main {
             imprimirMensagem("Opção selecionada:");
             opcoes = lerNumeroInteiro();
 
-            opcoes = verificarNumeroInvalido(opcoes);
+            opcoes = verificarNumeroInvalidoMenu(opcoes);
 
             encerarPrograma(opcoes);
 
@@ -80,13 +80,22 @@ public class Main {
     };
 
     public static int verificarNumeroInvalido(int opcoes) {
+        while (opcoes != 1 && opcoes != 0) {
+            System.out.println("Número inválido, tenta novamente !");
+            opcoes = read.nextInt();
+        }
+        System.out.println("Número válido !\n");
+        return opcoes;
+    };
+
+    public static int verificarNumeroInvalidoMenu(int opcoes) {
         while (opcoes != 1 && opcoes != 2 && opcoes != 0) {
             System.out.println("Número inválido, tenta novamente !");
             opcoes = read.nextInt();
         }
         System.out.println("Número válido !\n");
         return opcoes;
-    }
+    };
 
     public static void imprimirMensagem(String mensagem) {
         System.out.println(mensagem);
