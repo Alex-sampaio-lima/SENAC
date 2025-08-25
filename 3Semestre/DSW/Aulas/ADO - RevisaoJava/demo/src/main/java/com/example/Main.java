@@ -6,12 +6,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner read = new Scanner(System.in);
 
-        String nome;
-        String email;
+        String nome = "";
+        String email = "";
         int opcoes = 0;
 
         do {
-            System.out.println("Digite seu nome completo: ");
+            // System.out.println("Digite seu nome completo: ");
+            mostrarInfo("Digite seu nome completo:");
             nome = read.nextLine();
             System.out.println("Digite seu e-mail principal:");
             email = read.nextLine();
@@ -20,7 +21,7 @@ public class Main {
             System.out.println("0 - Sair");
             System.out.println("1 - Visualizar no Formato HTML");
             System.out.println("2 - Visualizar no Formato JSON");
-            System.out.print("Opção selecionada:");
+            System.out.print("Opção selecionada:\n\n");
             opcoes = read.nextInt();
 
             if (opcoes == 0) {
@@ -68,16 +69,30 @@ public class Main {
                 System.out.println("\n" + json);
             }
 
-            System.out.println("\n\nDeseja inserir mais um nome ?\nDigite 1 para SIM\nDigite 2 para NÃO");
+            System.out.println("\nDeseja inserir mais um nome ?\nDigite 1 para SIM\nDigite 2 para NÃO");
+            opcoes = read.nextInt();
             while (opcoes != 1 && opcoes != 2) {
+                System.out.println("Número inválido, tente novamente !");
                 opcoes = read.nextInt();
             }
 
             if (opcoes == 2) {
+                System.out.println("Programa Finalizad com Sucesso !");
                 break;
             }
-
+            read.nextLine();
         } while (opcoes != 0);
 
+        read.close();
     };
+
+    public static boolean verificaNumeroInvalido(int opcoes) {
+
+        return true;
+    }
+
+    public static void mostrarInfo(String mensagem) {
+        System.out.println(mensagem);
+
+    }
 };
