@@ -1,6 +1,8 @@
-package com.example;
-
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
+import java.awt.Desktop;
 
 public class Main {
     static Scanner read = new Scanner(System.in);
@@ -122,6 +124,20 @@ public class Main {
 
     public static void verificarTipoDeFormatacao(int opcoes, String html, String json) {
         if (opcoes == 1) {
+            try {
+                File file = new File("demo/src/main/java/com/example/usuario.html");
+                try (FileWriter writer = new FileWriter(file)) {
+                    writer.write(html);
+                }
+                System.out.println("Arquivo HTML gerado em: " + file.getAbsolutePath());
+
+                if (Desktop.isDesktopSupported()) {
+                    Desktop.getDesktop().browse(file.toURI());
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             System.out.println("\n" + html);
         } else if (opcoes == 2) {
             System.out.println("\n" + json);
