@@ -7,6 +7,9 @@ public class VetorObjeto {
         this.tamanho = 0;
     }
 
-
+    public void adiciona(Object elemento) (
     
+
+    );
+
 }
