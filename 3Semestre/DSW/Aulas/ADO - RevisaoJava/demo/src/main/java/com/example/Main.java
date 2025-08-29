@@ -1,3 +1,5 @@
+package com.example;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -30,22 +32,24 @@ public class Main {
 
             encerarPrograma(opcoes);
 
-            String html = String.format("\n\n<!DOCTYPE html>\r\n" + //
+            String html = String.format("<!DOCTYPE html>\r\n" + //
                     "<html lang=\"en\">\r\n" + //
                     "\r\n" + //
                     "<head>\r\n" + //
                     "    <meta charset=\"UTF-8\">\r\n" + //
                     "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n" + //
                     "    <title>Revisão Java </title>\r\n" + //
+                    "    <link rel=\"stylesheet\" href=\"style.css\">\r\n" + //
+                    "    <link rel=\"stylesheet\" href=\"reset.css\">\r\n" + //
                     "</head>\r\n" + //
                     "\r\n" + //
                     "<body>\r\n" + //
-                    "    <section>\r\n" + //
-                    "        <table>\r\n" + //
+                    "    <section class=\"container-principal-info\">\r\n" + //
+                    "        <table class=\"container-table\">\r\n" + //
                     "            <thead>\r\n" + //
-                    "                <th>Informações de Contato</th>\r\n" + //
+                    "                <th class=\"title-info\">Informações de Contato</th>\r\n" + //
                     "            </thead>\r\n" + //
-                    "            <tbody>\r\n" + //
+                    "            <tbody class=\"container-info-principal\">\r\n" + //
                     "                <tr>\r\n" + //
                     "                    <td>Nome: %s</td>\r\n" + //
                     "                </tr>\r\n" + //
@@ -123,13 +127,20 @@ public class Main {
     };
 
     public static void verificarTipoDeFormatacao(int opcoes, String html, String json) {
-        if (opcoes == 1) {
+        if (opcoes 
+        
+        
+        
+        
+        
+        
+        
+        == 1) {
             try {
                 File file = new File("demo/src/main/java/com/example/usuario.html");
                 try (FileWriter writer = new FileWriter(file)) {
                     writer.write(html);
                 }
-                System.out.println("Arquivo HTML gerado em: " + file.getAbsolutePath());
 
                 if (Desktop.isDesktopSupported()) {
                     Desktop.getDesktop().browse(file.toURI());
@@ -138,7 +149,7 @@ public class Main {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            System.out.println("\n" + html);
+            // System.out.println("\n" + html);
         } else if (opcoes == 2) {
             System.out.println("\n" + json);
         }
