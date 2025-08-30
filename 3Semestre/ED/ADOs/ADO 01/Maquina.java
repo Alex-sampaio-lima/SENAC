@@ -20,8 +20,15 @@ public class Maquina {
 
     @Override
     public String toString() {
-        return "Maquina [numeroSerial=" + numeroSerial + ", patrimonio=" + patrimonio + ", modelo=" + modelo + ", ano="
-                + ano + ", marca=" + marca + ", entrada=" + entrada + ", saida=" + saida + "]";
+        return "Máquina {" +
+                "\n  Número de Serial = " + numeroSerial +
+                "\n  Patrimônio       = " + patrimonio +
+                "\n  Modelo           = " + modelo +
+                "\n  Ano              = " + ano +
+                "\n  Marca            = " + marca +
+                "\n  Entrada          = " + entrada +
+                "\n  Saída            = " + saida +
+                "\n}";
     }
 
     public String getEntrada() {

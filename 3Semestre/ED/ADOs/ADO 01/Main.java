@@ -17,17 +17,8 @@ public class Main {
 
         int qtdMaquina = 0;
 
-        // Maquina m1 = new Maquina(
-        // "FSD5N22",
-        // 150034,
-        // "Latitude 3410",
-        // 2015,
-        // "DELL",
-        // "20/10/25",
-        // "31/12/25");
-
         do {
-            exibeMenu();
+            menuOpcoes();
             opcao = read.nextInt();
             read.nextLine();
 
@@ -36,7 +27,7 @@ public class Main {
             } else if (opcao == 2) {
                 System.out.println(vetorMaquina.toString());
                 while (opcao != 0 && opcao != 1) {
-                    exibeMenu();
+                    menuOpcoes();
                     opcao = read.nextInt();
                     read.nextLine();
                     System.out.println(vetorMaquina.toString());
@@ -75,10 +66,6 @@ public class Main {
                 vetorMaquina.adiciona(maquinaCriada);
             }
 
-            if (opcao == 2) {
-                vetorMaquina.toString();
-            }
-
             System.out.println(vetorMaquina.tamanho());
 
         } while (opcao != 0);
@@ -86,7 +73,7 @@ public class Main {
         read.close();
     }
 
-    public static void exibeMenu() {
+    public static void menuOpcoes() {
         System.out.println("Escolha a opção que deseja realizar: ");
         System.out.println("0 - Sair");
         System.out.println("1 - Adicionar máquina(s)");
