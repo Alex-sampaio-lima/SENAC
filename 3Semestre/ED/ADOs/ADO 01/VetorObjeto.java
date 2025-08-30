@@ -1,5 +1,5 @@
 public class VetorObjeto {
-    public Objects[] maquinas;
+    public Object[] maquinas;
     public int tamanho;
 
     public VetorObjeto(int capacidade) {
@@ -7,9 +7,61 @@ public class VetorObjeto {
         this.tamanho = 0;
     }
 
-    public void adiciona(Object elemento) (
-    
+    public void adiciona(Object elemento) throws Exception {
+        this.aumentaCapacidade();
+        this.maquinas[this.tamanho] = elemento;
+        this.tamanho++;
+    };
 
-    );
+    public int tamanho() {
+        return this.tamanho;
+    };
 
-}
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder();
+        s.append("[");
+
+        for (int i = 0; i < this.tamanho - 1; i++) {
+            s.append(this.maquinas[i]);
+        }
+
+        if (this.tamanho > 0) {
+            s.append(this.maquinas[this.tamanho - 1]);
+        }
+
+        s.append("]");
+
+        return s.toString();
+    }
+
+    public Object busca(int posicao) throws Exception {
+        if (posicao >= 0 && posicao < tamanho) {
+            return this.maquinas[posicao];
+        } else {
+            throw new Exception("Posição inválida ! Tente inserir outra posição");
+        }
+    };
+
+    private void aumentaCapacidade() {
+        if (this.tamanho == this.maquinas.length) {
+            Object[] maquinaNovas = new Object[this.maquinas.length * 2];
+            for (int i = 0; i < this.maquinas.length; i++) {
+                maquinaNovas[i] = this.maquinas[i];
+            }
+            this.maquinas = maquinaNovas;
+        }
+    };
+
+    public void remove(int posicao) throws Exception {
+        if (posicao >= 0 && posicao < tamanho) {
+            for (int i = posicao; i < this.tamanho - 1; i++) {
+                this.maquinas[i] = this.maquinas[i + 1];
+            }
+            this.maquinas[tamanho] = null;
+            this.tamanho--;
+        } else {
+            throw new Exception("Posição Inválida !");
+        }
+    };
+};
