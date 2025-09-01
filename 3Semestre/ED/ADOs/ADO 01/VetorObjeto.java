@@ -30,7 +30,7 @@ public class VetorObjeto {
             s.append(this.maquinas[this.tamanho - 1]);
         }
 
-        s.append("]");
+        s.append("]\n");
 
         return s.toString();
     }

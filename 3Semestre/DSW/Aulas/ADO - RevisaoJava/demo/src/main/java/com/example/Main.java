@@ -127,15 +127,7 @@ public class Main {
     };
 
     public static void verificarTipoDeFormatacao(int opcoes, String html, String json) {
-        if (opcoes 
-        
-        
-        
-        
-        
-        
-        
-        == 1) {
+        if (opcoes == 1) {
             try {
                 File file = new File("demo/src/main/java/com/example/usuario.html");
                 try (FileWriter writer = new FileWriter(file)) {

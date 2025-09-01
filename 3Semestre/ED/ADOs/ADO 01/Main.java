@@ -17,6 +17,8 @@ public class Main {
 
         int qtdMaquina = 0;
 
+        int numeroRemove = 0;
+
         do {
             menuOpcoes();
             opcao = read.nextInt();
@@ -31,6 +33,28 @@ public class Main {
                     opcao = read.nextInt();
                     read.nextLine();
                     System.out.println(vetorMaquina.toString());
+                    if (opcao == 0) {
+                        System.out.println("Programa Finalizado !");
+                        System.exit(0);
+                    } else if (opcao == 3) {
+                        System.out.println("Informe a posição da máquina que deseja remover: ");
+                        numeroRemove = read.nextInt();
+                        read.nextLine();
+                        vetorMaquina.remove(numeroRemove);
+
+                        System.out.println("Deseja remover mais uma máquina ?");
+                        System.out.println("0 - SIM");
+                        System.out.println("1 - NÃO");
+
+                        if (opcao == 0) {
+                            while (opcao != 0) {
+                                System.out.println("Informe a posição da máquina que deseja remover: ");
+                                numeroRemove = read.nextInt();
+                                System.out.println("Se deseja sair, aperte o [0]: ");
+                                opcao = read.nextInt();
+                            }
+                        }
+                    }
                 }
             }
 
@@ -60,8 +84,8 @@ public class Main {
                 System.out.print("Insira o data em que a máquina saiu do estoque: ");
                 saida = read.nextLine();
 
-                Maquina maquinaCriada = new Maquina(numeroSerial, patrimonio, modelo, ano,
-                        marca, entrada, saida);
+                Maquina maquinaCriada = new Maquina(numeroSerial, patrimonio, modelo,
+                        ano, marca, entrada, saida);
 
                 vetorMaquina.adiciona(maquinaCriada);
             }
@@ -76,7 +100,8 @@ public class Main {
     public static void menuOpcoes() {
         System.out.println("Escolha a opção que deseja realizar: ");
         System.out.println("0 - Sair");
-        System.out.println("1 - Adicionar máquina(s)");
-        System.out.println("2 - Visualizar máquinas");
+        System.out.println("1 - Adicionar Máquina(s)");
+        System.out.println("2 - Visualizar Máquina(s)");
+        System.out.println("3 - Remover Máquina");
     }
 };

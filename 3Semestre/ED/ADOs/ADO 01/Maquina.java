@@ -20,6 +20,7 @@ public class Maquina {
 
     @Override
     public String toString() {
+
         return "Máquina {" +
                 "\n  Número de Serial = " + numeroSerial +
                 "\n  Patrimônio       = " + patrimonio +
