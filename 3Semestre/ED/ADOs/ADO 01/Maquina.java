@@ -21,7 +21,7 @@ public class Maquina {
     @Override
     public String toString() {
 
-        return "Máquina {" +
+        return " Máquina = {" +
                 "\n  Número de Serial = " + numeroSerial +
                 "\n  Patrimônio       = " + patrimonio +
                 "\n  Modelo           = " + modelo +
@@ -29,7 +29,7 @@ public class Maquina {
                 "\n  Marca            = " + marca +
                 "\n  Entrada          = " + entrada +
                 "\n  Saída            = " + saida +
-                "\n}";
+                "\n }";
     }
 
     public String getEntrada() {
