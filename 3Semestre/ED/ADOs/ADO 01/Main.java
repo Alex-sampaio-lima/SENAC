@@ -33,26 +33,25 @@ public class Main {
                         System.out.printf("\nCadastro da Máquina %d\n", i + 1);
 
                         System.out.print("Número de Serial: ");
-                        numeroSerial = read.nextLine();
+                        numeroSerial = verificaString(numeroSerial);
 
                         System.out.print("Patrimônio: ");
-                        patrimonio = read.nextInt();
+                        patrimonio = verificaNumero(patrimonio);
 
                         System.out.print("Modelo: ");
-                        modelo = read.nextLine();
+                        modelo = verificaString(modelo);
 
                         System.out.print("Ano: ");
-                        ano = read.nextInt();
-                        read.nextLine();
+                        ano = verificaNumero(ano);
 
                         System.out.print("Marca: ");
-                        marca = read.nextLine();
+                        marca = verificaString(marca);
 
                         System.out.print("Data que a máquina entrou no estoque: ");
-                        entrada = read.nextLine();
+                        entrada = verificaString(entrada);
 
                         System.out.print("Data que a máquina saiu do estoque: ");
-                        saida = read.nextLine();
+                        saida = verificaString(saida);
 
                         Maquina maquinaCriada = new Maquina(numeroSerial, patrimonio, modelo, ano, marca, entrada,
                                 saida);
@@ -90,20 +89,23 @@ public class Main {
     }
 
     public static int verificaNumero(int numero) {
-        try {
-            numero = read.nextInt();
-            read.nextLine();
-        } catch (Exception e) {
-            while (!read.hasNextInt()) {
-                System.out.println("Número inválido ! Digite um número inteiro");
-                numero = read.nextInt();
-                return numero;
-            }
+        while (!read.hasNextInt()) {
+            System.out.println("Número inválido ! Digite um número inteiro: ");
+            read.next();
         }
+        numero = read.nextInt();
+        read.nextLine();
         return numero;
-    }
+    };
 
-    public static void verificaString() {
+    public static String verificaString(String entrada) {
+        entrada = read.nextLine();
 
-    }
-}
+        while (entrada.trim().isEmpty()) {
+            System.out.println("Entrada inválida! Digite novamente:");
+            entrada = read.nextLine();
+        }
+        return entrada;
+    };
+
+};
