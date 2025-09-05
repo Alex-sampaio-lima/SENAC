@@ -4,12 +4,16 @@ public class Main {
     static Scanner read = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
-        int tamanhoVetorMaquina = 0;
         int opcao = 0;
+        int patrimonio = 0;
+        String numeroSerial = "";
+        String modelo = "";
+        int ano = 0;
+        String marca = "";
+        String entrada = "";
+        String saida = "";
 
-        System.out.println("Informe quantas máquinas você irá adicionar antes de iniciar o programa !");
-        tamanhoVetorMaquina = read.nextInt();
-        VetorObjeto vetorMaquina = new VetorObjeto(tamanhoVetorMaquina);
+        VetorObjeto vetorMaquina = new VetorObjeto(100);
 
         do {
             menuOpcoes();
@@ -29,27 +33,26 @@ public class Main {
                         System.out.printf("\nCadastro da Máquina %d\n", i + 1);
 
                         System.out.print("Número de Serial: ");
-                        String numeroSerial = read.nextLine();
+                        numeroSerial = read.nextLine();
 
                         System.out.print("Patrimônio: ");
-                        int patrimonio = read.nextInt();
-                        read.nextLine();
+                        patrimonio = read.nextInt();
 
                         System.out.print("Modelo: ");
-                        String modelo = read.nextLine();
+                        modelo = read.nextLine();
 
                         System.out.print("Ano: ");
-                        int ano = read.nextInt();
+                        ano = read.nextInt();
                         read.nextLine();
 
                         System.out.print("Marca: ");
-                        String marca = read.nextLine();
+                        marca = read.nextLine();
 
                         System.out.print("Data que a máquina entrou no estoque: ");
-                        String entrada = read.nextLine();
+                        entrada = read.nextLine();
 
                         System.out.print("Data que a máquina saiu do estoque: ");
-                        String saida = read.nextLine();
+                        saida = read.nextLine();
 
                         Maquina maquinaCriada = new Maquina(numeroSerial, patrimonio, modelo, ano, marca, entrada,
                                 saida);
@@ -76,7 +79,7 @@ public class Main {
         } while ((opcao != 0));
 
         read.close();
-    }
+    };
 
     public static void menuOpcoes() {
         System.out.println("\nEscolha a opção que deseja realizar: ");
@@ -84,5 +87,23 @@ public class Main {
         System.out.println("1 - Adicionar Máquina(s)");
         System.out.println("2 - Visualizar Máquina(s)");
         System.out.println("3 - Remover Máquina");
+    }
+
+    public static int verificaNumero(int numero) {
+        try {
+            numero = read.nextInt();
+            read.nextLine();
+        } catch (Exception e) {
+            while (!read.hasNextInt()) {
+                System.out.println("Número inválido ! Digite um número inteiro");
+                numero = read.nextInt();
+                return numero;
+            }
+        }
+        return numero;
+    }
+
+    public static void verificaString() {
+
     }
 }

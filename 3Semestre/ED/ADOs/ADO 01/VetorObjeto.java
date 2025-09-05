@@ -19,20 +19,15 @@ public class VetorObjeto {
 
     @Override
     public String toString() {
-        StringBuilder s = new StringBuilder();
-        s.append("[");
-
-        for (int i = 0; i < this.tamanho - 1; i++) {
-            s.append(this.maquinas[i]);
+        StringBuilder sb = new StringBuilder();
+        sb.append("[\n");
+        for (int i = 0; i < this.tamanho; i++) {
+            if (this.maquinas[i] != null) { // só imprime se não for null
+                sb.append(this.maquinas[i].toString()).append("\n");
+            }
         }
-
-        if (this.tamanho > 0) {
-            s.append(this.maquinas[this.tamanho - 1]);
-        }
-
-        s.append("]\n");
-
-        return s.toString();
+        sb.append("]");
+        return sb.toString();
     }
 
     public Object busca(int posicao) throws Exception {
