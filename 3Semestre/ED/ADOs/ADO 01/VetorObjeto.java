@@ -4,7 +4,7 @@ public class VetorObjeto {
 
     public VetorObjeto(int capacidade) {
         this.maquinas = new Object[capacidade];
-        this.tamanho = capacidade;
+        this.tamanho = 0;
     }
 
     public void adiciona(Object elemento) throws Exception {

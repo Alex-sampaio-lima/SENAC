@@ -12,8 +12,9 @@ public class Main {
         String marca = "";
         String entrada = "";
         String saida = "";
+        int capacidadeInicial = 100;
 
-        VetorObjeto vetorMaquina = new VetorObjeto(100);
+        VetorObjeto vetorMaquina = new VetorObjeto(capacidadeInicial);
 
         do {
             menuOpcoes();
@@ -86,7 +87,7 @@ public class Main {
         System.out.println("1 - Adicionar Máquina(s)");
         System.out.println("2 - Visualizar Máquina(s)");
         System.out.println("3 - Remover Máquina");
-    }
+    };
 
     public static int verificaNumero(int numero) {
         while (!read.hasNextInt()) {
