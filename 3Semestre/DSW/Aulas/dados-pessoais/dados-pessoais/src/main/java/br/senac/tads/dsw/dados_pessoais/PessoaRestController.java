@@ -1,5 +1,6 @@
 package br.senac.tads.dsw.dados_pessoais;
 
+import java.net.URI;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 public class PessoaRestController {
@@ -68,7 +70,17 @@ public class PessoaRestController {
 
     public ResponseEntity<?> addNew(@RequestBody Pessoa pessoa) {
         Pessoa p = service.addNew(pessoa);
-        return ResponseEntity.created(null).build();
+        URI location = ServletUriComponentsBuilder
+            .fromCurrentRequestUri()
+            .path("/username")
+            .buildAndExpand(p.getUsername())
+            .toUri();
+        
+        return ResponseEntity.created(location).build();
+
     }
+
+    
+    
 
 };
