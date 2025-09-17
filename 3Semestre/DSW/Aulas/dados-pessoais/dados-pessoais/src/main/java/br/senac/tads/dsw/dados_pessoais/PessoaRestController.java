@@ -5,9 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -71,16 +73,32 @@ public class PessoaRestController {
     public ResponseEntity<?> addNew(@RequestBody Pessoa pessoa) {
         Pessoa p = service.addNew(pessoa);
         URI location = ServletUriComponentsBuilder
-            .fromCurrentRequestUri()
-            .path("/username")
-            .buildAndExpand(p.getUsername())
-            .toUri();
-        
+                .fromCurrentRequestUri()
+                .path("/username")
+                .buildAndExpand(p.getUsername())
+                .toUri();
+
         return ResponseEntity.created(location).build();
 
     }
 
-    
-    
+    public ResponseEntity<?> update(
+            @PathVariable String username,
+            @RequestBody Pessoa pessoa) 
+        Pessoa p = service.findByUsername(username);
+        if (p == null) {
+            return ResponseEntity.notFound().build();
+        }
+        p = service.update(username, pessoa);
 
-};
+        return ResponseEntity.noContent().build();
+
+    }
+
+    @DeleteMapping("/username")
+    public ResponseEntity<?> delete(String username){
+        service.delete(username);
+        return Respon
+    }   
+
+}
