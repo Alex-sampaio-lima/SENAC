@@ -8,7 +8,7 @@ import java.util.List;
 // @NoArgsConstructor
 // @AllArgsConstructor
 // Uma forma diferente de usar Getters, Setters e Constructors 
-public class Pessoa {
+public class Pessoa { // POJO
 
     private String username;
     private String nome;
