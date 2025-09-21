@@ -65,7 +65,7 @@ public class PessoaRestController {
 
     @PostMapping("path")
     public String postMethodName(@RequestBody String entity) {
-        //TODO: process POST request
+        // TODO: process POST request
 
         return entity;
     }
@@ -95,10 +95,10 @@ public class PessoaRestController {
 
     }
 
-    @DeleteMapping("/username")
-    public ResponseEntity<?> delete(String username){
-        service.delete(username);
-        return Respon
-    }   
+    // @DeleteMapping("/username")
+    // public ResponseEntity<?> delete(String username) {
+    // service.delete(username);
+    // return Respon
+    // }
 
 }
