@@ -69,7 +69,7 @@ public class Main {
                     vetorMaquina.remove(numeroRemove);
                     System.out.println("Máquina removida!");
                     break;
-
+                    
                 default:
                     System.out.println("Opção inválida!");
             }

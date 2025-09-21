@@ -8,17 +8,18 @@ public class EstruturaEstatica<T> {
         this.tamanho = 0;
     }
 
-    //    Método construtor sem parâmetros
+    // Método construtor sem parâmetros
     public EstruturaEstatica() {
         this(10);
     }
 
-    //    Método para adicionar elementos na estrutura
+    // Método para adicionar elementos na estrutura
     public boolean adiciona(T elemento) {
         this.aumentaCapacidade();
         this.elementos[this.tamanho] = elemento;
         this.tamanho++;
         return true;
+
     }
 
     // Método para adicionar elementos na estrutura em uma posição especifica
@@ -45,20 +46,19 @@ public class EstruturaEstatica<T> {
         }
     }
 
-    //    Método para verificar a quantidade de dados dentro da Estrutura
+    // Método para verificar a quantidade de dados dentro da Estrutura
     public int tamanho() {
         return this.tamanho;
     }
 
 
-//    Método para exibir dados da Estrutura
-
+    // Método para exibir dados da Estrutura
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
 
         s.append("[");
-        for (int i = 0; i < this.tamanho; i++) {
+        for (int i = 0; i < this.tamanho - 1; i++) {
             s.append(this.elementos[i]);
             s.append(", ");
         }
@@ -71,12 +71,12 @@ public class EstruturaEstatica<T> {
         return s.toString();
     }
 
-    //    Método para verificar se existe elementos na estrutura 
+    // Método para verificar se existe elementos na estrutura
     public boolean estaVazia() {
         return this.tamanho == 0;
     }
 
-    //    Método para remover elementos da estrutura
+    // Método para remover elementos da estrutura
     public void remove(int posicao) {
         if (!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("Posição inválida");
@@ -86,6 +86,4 @@ public class EstruturaEstatica<T> {
         }
         tamanho--;
     }
-
-
 };
