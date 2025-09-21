@@ -52,13 +52,13 @@ public class ListaEncadeada<Tipo> {
         }
         this.tamanho++;
 
-    }
+    };
 
-    public No get(int posicao) {
+    public No<String> get(int posicao) {
         No atual = this.inicio;
 
         if (posicao > this.tamanho) {
-            No erro = new No("ERRO - não localizado");
+            No<String> erro = new No<String>("ERRO - não localizado");
             return erro;
         }
 
@@ -90,6 +90,8 @@ public class ListaEncadeada<Tipo> {
 
     }
 
+    // Remover elementos em todas as posições
+    
     public void remover(Tipo elemento) {
         No anterior = null;
         No atual = this.inicio;

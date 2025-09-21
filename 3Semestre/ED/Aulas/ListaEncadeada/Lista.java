@@ -33,7 +33,7 @@ public class Lista {
         System.out.println("Inicio da lista = " + lista.getInicio().getElemento());
         System.out.println("Fim da Lista = " + lista.getFim().getElemento());
 
-        // System.out.println("Elemento na posição 2 = " + lista.get(8).getElemento());
+        System.out.println("Elemento na posição 2 = " + lista.get(8).getElemento());
 
     };
 };
