@@ -3,6 +3,7 @@ package br.senac.tads.dsw.dadospessoais;
 import java.time.LocalDate;
 import java.util.List;
 
+import br.senac.tads.dsw.dadospessoais.validacao.SenhasIguais;
 import br.senac.tads.dsw.dadospessoais.validacao.UserNameUnico;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -10,6 +11,7 @@ import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
+@SenhasIguais
 public class Pessoa { // POJO
 
     @NotBlank // @NotNull + NotEmpty

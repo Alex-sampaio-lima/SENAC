@@ -7,13 +7,12 @@ import br.senac.tads.dsw.dadospessoais.PessoaService;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
-public class UserNameUnicoValidator implements ConstraintValidator<UserNameUnico, String> {
-
-    @Autowired
-    private PessoaService service;
+public class SenhasIguaisValidator implements ConstraintValidator<SenhasIguais, Pessoa> {
 
     @Override
-    public boolean isValid(String username, ConstraintValidatorContext context) {
-        return (service.findByUsername(username) == null);
+    public boolean isValid(Pessoa pessoa, ConstraintValidatorContext context) {
+        return pessoa.getSenha() != null && pessoa.getSenha().equals(pessoa.getRepeticaoSenha());
+
     }
-};
+
+}

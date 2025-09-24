@@ -1,21 +1,22 @@
 package br.senac.tads.dsw.dadospessoais.validacao;
 
-import jakarta.validation.Constraint;
-import jakarta.validation.Payload;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
+
 @Documented
-@Target({ElementType.FIELD})
-@Constraint(validatedBy = UserNameUnicoValidator.class)
+@Target({ElementType.TYPE})
+@Constraint(validatedBy = SenhasIguaisValidator.class)
 @Retention(RetentionPolicy.RUNTIME)
 
-public @interface UserNameUnico {
+public @interface SenhasIguais {
 
-    String message() default "Username já cadastrado";
+    String message() default "A senha e repetição devem ser iguais";
 
     Class<?>[] groups() default {};
 
