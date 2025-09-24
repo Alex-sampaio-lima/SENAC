@@ -3,6 +3,7 @@ package br.senac.tads.dsw.dadospessoais;
 import java.time.LocalDate;
 import java.util.List;
 
+import br.senac.tads.dsw.dadospessoais.validacao.UserNameUnico;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PastOrPresent;
@@ -13,6 +14,7 @@ public class Pessoa { // POJO
 
     @NotBlank // @NotNull + NotEmpty
     @Size(min = 3, max = 64)
+    @UserNameUnico
     private String username;
 
     @NotBlank
@@ -37,7 +39,7 @@ public class Pessoa { // POJO
     private String repeticaoSenha;
 
     @Size(min = 1)
-    private List<String> interesses;
+    private List<@NotBlank String> interesses;
 
     public Pessoa() {
     }
