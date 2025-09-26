@@ -6,11 +6,11 @@ public class Lista {
 
         minhaListaDeNomes.get(1);
 
-        System.out.println("Era pra ser aqui ne " + minhaListaDeNomes.toString());
+        System.out.println("Lista de Nomes: " + minhaListaDeNomes.toString());
 
         minhaListaDeNomes.remover("Pedro");
         
-        System.out.println("Era pra ser aqui ne " + minhaListaDeNomes.toString());
+        System.out.println("Lista de Nomes: " + minhaListaDeNomes.toString());
 
         minhaListaDeNomes.get(1);
         System.out.println(minhaListaDeNomes.toString());
