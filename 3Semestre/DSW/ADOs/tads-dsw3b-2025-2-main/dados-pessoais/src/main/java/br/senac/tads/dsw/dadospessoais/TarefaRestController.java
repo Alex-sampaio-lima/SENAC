@@ -31,42 +31,42 @@ public class TarefaRestController {
     private TarefaService service;
 
     @GetMapping
-    public List<TarefaDTO> findAll() {
+    public List<BlogDTO> findAll() {
         return service.findAll();
     }
-    
+
     @GetMapping("/{titulo}")
-    public TarefaDTO findByTituloRequestParam(
+    public BlogDTO findByTituloRequestParam(
             @PathVariable(value = "titulo") String u) {
         return service.findByTitulo(u);
     }
 
-    // @GetMapping("/{titulo}")    
-    // public TarefaDTO findByUsername(@PathVariable("username") String username) {
-    //     TarefaDTO tarefa = service.findByTitulo(username);
-    //     if (tarefa == null) {
-    //         throw new ResponseStatusException(HttpStatus.NOT_FOUND,
-    //             "Tarefa %s não encontrada".formatted(username));
-    //     }
-    //     return tarefa;
+    // @GetMapping("/{titulo}")
+    // public BlogDTO findByUsername(@PathVariable("username") String username) {
+    // BlogDTO tarefa = service.findByTitulo(username);
+    // if (tarefa == null) {
+    // throw new ResponseStatusException(HttpStatus.NOT_FOUND,
+    // "Tarefa %s não encontrada".formatted(username));
+    // }
+    // return tarefa;
     // }
 
     @PostMapping
-    public ResponseEntity<TarefaDTO> addNew(@RequestBody @Valid TarefaDTO input) {
-        TarefaDTO tarefa = service.addNew(input);
+    public ResponseEntity<BlogDTO> addNew(@RequestBody @Valid BlogDTO input) {
+        BlogDTO tarefa = service.addNew(input);
 
         URI location = ServletUriComponentsBuilder
-            .fromCurrentRequestUri()
-            .path("/{titulo}")
-            .buildAndExpand(tarefa.getTitulo())
-            .toUri();
+                .fromCurrentRequestUri()
+                .path("/{titulo}")
+                .buildAndExpand(tarefa.getTitulo())
+                .toUri();
         return ResponseEntity.created(location).build();
     }
 
     @PutMapping("/{titulo}")
-    public ResponseEntity<TarefaDTO> update(@PathVariable String username, 
-            @RequestBody @Valid TarefaDTO input) {
-            TarefaDTO pessoa = service.findByTitulo(username);
+    public ResponseEntity<BlogDTO> update(@PathVariable String username,
+            @RequestBody @Valid BlogDTO input) {
+        BlogDTO pessoa = service.findByTitulo(username);
         if (pessoa == null) {
             return ResponseEntity.notFound().build();
         }
@@ -82,13 +82,13 @@ public class TarefaRestController {
 
     // // Handle @Valid validation errors
     // @ExceptionHandler(MethodArgumentNotValidException.class)
-    // public ResponseEntity<Map<String, String>> handleValidationExceptions(MethodArgumentNotValidException ex) {
-    //     Map<String, String> errors = new HashMap<>();
-    //     for (FieldError error : ex.getBindingResult().getFieldErrors()) {
-    //         errors.put(error.getField(), error.getDefaultMessage());
-    //     }
-    //     return ResponseEntity.badRequest().body(errors);
+    // public ResponseEntity<Map<String, String>>
+    // handleValidationExceptions(MethodArgumentNotValidException ex) {
+    // Map<String, String> errors = new HashMap<>();
+    // for (FieldError error : ex.getBindingResult().getFieldErrors()) {
+    // errors.put(error.getField(), error.getDefaultMessage());
+    // }
+    // return ResponseEntity.badRequest().body(errors);
     // }
 
 }
- 
