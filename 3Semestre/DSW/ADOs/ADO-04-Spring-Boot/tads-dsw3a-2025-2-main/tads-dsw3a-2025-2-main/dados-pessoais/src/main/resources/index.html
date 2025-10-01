@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="index.css">
+    <title>Blog</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="blog-manager">
+            <h2>Blog</h2>
+
+            <div id="blogsContainer">
+            </div>
+
+            <button class="btn-add-blog" id="btnIncluirBlog">Incluir novo Blog</button>
+
+            <form id="formNovaBlog">
+                <h3>Novo Blog</h3>
+
+                <label for="titulo">Título</label>
+                <input type="text" id="titulo" name="titulo" />
+
+                <label for="autor">Autor</label>
+                <input type="text" id="autor" name="autor" />
+
+                <label for="dataPublicacao">Data da publicação</label>
+                <input type="date" id="dataPublicacao" name="dataPublicacao" />
+
+                <label for="texto">Texto</label>
+                <textarea id="texto" name="texto"></textarea>
+
+                <button type="submit" class="btn-save-blog">Salvar </button>
+            </form>
+            <p id="msgErro" style="color: red;"></p>
+            <p id="msgSucesso" style="color: green;"></p>
+        </div>
+
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
