@@ -83,11 +83,7 @@ public class Vetor {
     public void remove(int posicao) throws Exception {
         if (posicao >= 0 && posicao < tamanho) {
             for (int i = posicao; i < this.tamanho - 1; i++) {
-                System.out.println(Arrays.toString(vetor));
                 this.vetor[i] = this.vetor[i + 1];
-                System.out.println("Vetor i = " + this.vetor[i]);
-                System.out.println("Vetor i + 1 = " + this.vetor[i + 1]);
-                System.out.println(Arrays.toString(vetor));
             }
             this.vetor[tamanho] = null;
             this.tamanho--;

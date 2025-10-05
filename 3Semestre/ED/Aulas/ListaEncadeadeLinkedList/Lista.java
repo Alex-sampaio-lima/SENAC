@@ -1,3 +1,5 @@
+package ListaEncadeadeLinkedList;
+
 public class Lista {
     public static void main(String[] args) {
         ListaEncadeada<String> minhaListaDeNomes = new ListaEncadeada<>();

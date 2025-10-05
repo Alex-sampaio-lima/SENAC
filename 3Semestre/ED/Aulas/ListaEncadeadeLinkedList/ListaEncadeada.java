@@ -1,3 +1,5 @@
+package ListaEncadeadeLinkedList;
+
 import java.util.LinkedList;
 
 public class ListaEncadeada<Tipo> {
