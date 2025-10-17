@@ -1,0 +1,58 @@
+## Resultados do atletismo nas olimpÃ­adas de Paris 2024
+##
+## Feminino
+#modalidade,ouro,prata,bronze
+100 metros,Santa Lúcia,Estados Unidos,Estados Unidos
+200 metros,Estados Unidos,Santa Lúcia,Estados Unidos
+400 metros,República Dominicana,Barém,Polônia
+800 metros,Grã-Bretanha,Etiopia,Quênia
+1500 metros,Quênia,Austrália,Grã-Bretanha
+5000 metros,Quênia,Quênia,Países Baixos
+10000 metros,Quênia,Itália,Países Baixos
+100 metros com barreiras,Estados Unidos,França,Porto Rico
+400 metros com barreiras,Estados Unidos,Estados Unidos,Países Baixos
+3000 metros com obstáculos,Barém,Uganda,Quênia
+4x100 metros,Estados Unidos,Grã-Bretanha,Alemanha
+4x400 metros,Estados Unidos,Países Baixos,Grã-Bretanha
+20 km marcha atlética,China,Espanha,Austrália
+Maratona,Países Baixos,Etiopia,Quênia
+Salto em altura,Ucrânia,Austrália,Austrália
+Salto com vara,Austrália,Estados Unidos,Canadá
+Salto em distância,Estados Unidos,Alemanha,Estados Unidos
+Salto triplo,Dominica,Jamaica,Estados Unidos
+Arremesso de peso,Alemanha,Nova Zelândia,China
+Lançamento de disco,Estados Unidos,China,Croácia
+Lançamento de martelo,Canadá,Estados Unidos,China
+Lançamento de dardo,Japão,África do Sul,Chéquia
+Heptatlo,Bélgica,Grã-Bretanha,Bélgica
+##
+## Masculino
+#modalidade,ouro,prata,bronze
+100 metros,Estados Unidos,Jamaica,Estados Unidos
+200 metros,Botsuana,Estados Unidos,Estados Unidos
+400 metros,Estados Unidos,Grã-Bretanha,Zâmbia
+800 metros,Quênia,Canadá,Argélia
+1500 metros,Estados Unidos,Grã-Bretanha,Estados Unidos
+5000 metros,Noruega,Quênia,Estados Unidos
+10000 metros,Uganda,Etiopia,Estados Unidos
+110 metros com barreiras,Estados Unidos,Estados Unidos,Jamaica
+400 metros com barreiras,Estados Unidos,Noruega,Brasil
+3000 metros com obstáculos,Marrocos,Estados Unidos,Quênia
+4x100 metros,Canadá,África do Sul,Grã-Bretanha
+4x400 metros,Estados Unidos,Botsuana,Grã-Bretanha
+20 km marcha atlética,Equador,Brasil,Espanha
+Maratona,Etiopia,Bélgica,Quênia
+Salto em altura,Nova Zelândia,Estados Unidos,Catar
+Salto com vara,Suécia,Estados Unidos,Grécia
+Salto em distância,Grécia,Jamaica,Itália
+Salto triplo,Espanha,Portugal,Itália
+Arremesso de peso,Estados Unidos,Estados Unidos,Jamaica
+Lançamento de disco,Jamaica,Lituânia,Austrália
+Lançamento de martelo,Canadá,Hungria,Ucrânia
+Lançamento de dardo,Paquistão,Índia,Granada
+Decatlo,Noruega,Alemanha,Granada
+##
+## Misto
+#modalidade,ouro,prata,bronze
+4x400 metros,Países Baixos,Estados Unidos,Grã-Bretanha
+Maratona de marcha atlética,Espanha,Equador,Austrália
