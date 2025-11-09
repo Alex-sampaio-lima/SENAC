@@ -1,3 +1,39 @@
+const URL = 'http://localhost:8080/blog';
+
+async function carregarPosts() {
+    try {
+        const resp = await fetch(URL);
+        if (!resp.ok) {
+            throw new Error(`Response status ${Response.status}`);
+        };
+        const posts = await resp.json();
+        console.log(posts);
+
+    } catch (e) {
+        console.error(error.message);
+    };
+};
+
+
+function mostrarPosts(posts) {
+    const lista = document.querySelector(".post-list");
+    lista.innerHTML = "";
+
+    posts.forEach(post => {
+        const artigo = document.createElement("article");
+        artigo.classList.add("post", "published");
+
+        artigo.innerHTML = `
+            <section class="post-info"> 
+                <h2>$
+            </section>
+
+        `;
+    });
+};
+
+document.addEventListener("DOMContentLoaded", carregarPosts);
+
 document.addEventListener('DOMContentLoaded', (event) => {
     const showFormBtn = document.getElementById('show-form-btn');
     const postsList = document.querySelector('.posts-list');
