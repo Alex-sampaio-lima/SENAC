@@ -1,0 +1,208 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    min-height: 100vh;
+}
+
+/* ---------------------------------- */
+/* Estilos Comuns */
+/* ---------------------------------- */
+.blog-header {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 5px;
+}
+
+.blog-header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.blog-content {
+    width: 90%;
+    max-width: 600px; 
+    border: 1px solid #ccc; /* Borda do conteúdo principal */
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none; /* Classe crucial para ocultar um dos blocos */
+}
+
+/* ---------------------------------- */
+/* Estilos do FORMULÁRIO (new-post-form) */
+/* ---------------------------------- */
+.new-post-form h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+/* Campos de Título, Autor, Data */
+.post-form input[type="text"],
+.post-form input[type="date"] {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100%; /* Ocupa a largura total da linha */
+    box-sizing: border-box;
+}
+
+/* Campo de Texto (Textarea) */
+.post-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Borda mais arredondada como na imagem */
+    font-size: 14px;
+    resize: vertical;
+    min-height: 150px; 
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Botão Salvar */
+.btn-save {
+    margin-top: 20px;
+    padding: 10px 30px;
+    border: none;
+    background-color: #4a90e2; /* Azul */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    align-self: center; /* Centraliza o botão */
+}
+
+
+/* ---------------------------------- */
+/* Estilos da LISTA DE POSTS (posts-list) - Reutilizados do código anterior */
+/* ---------------------------------- */
+
+.post {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.post-info {
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.post h2 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.post p {
+    margin: 2px 0;
+    font-size: 14px;
+}
+
+.post-summary {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.status-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.tag-nao-publicado {
+    background-color: #ff8c00; 
+}
+
+.post-actions {
+    margin-top: 10px;
+}
+
+.btn-action {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.btn-alterar {
+    background-color: #4a90e2; 
+}
+
+.btn-excluir {
+    background-color: #d0021b; 
+}
+
+.new-post-area {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-new-post {
+    padding: 10px 20px;
+    border: 1px solid #4a90e2;
+    background-color: #79aee5;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------------------------------- */
+/* Rodapé */
+/* ---------------------------------- */
+.blog-footer {
+    width: 100%;
+    max-width: 640px; 
+    background-color: #dddddd;
+    color: #000;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    border-radius: 10px;
+    position: fixed; 
+    bottom: 0;
+    border-top: 1px solid #ccc; 
+}
