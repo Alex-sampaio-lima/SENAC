@@ -1,7 +1,7 @@
 package com.senac.atividade_final.persistence.entities;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -11,8 +11,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -35,22 +33,22 @@ public class Blog implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false)
     @NotBlank(message = "O Titúlo não pode estar vazio !")
+    @Column(nullable = false)
     private String titulo;
 
+    @NotBlank(message = "O Autor é obrigatório !")
     @Column(nullable = false)
-    @NotBlank(message = "O autor é obrigatório !")
     private String autor;
 
-    @Temporal(TemporalType.DATE)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    @NotNull(message = "A data de publicação é obrigatória !")
+    // @JsonFormat(pattern = "yyyy-MM-dd")
+    @NotNull(message = "A Data de publicação é obrigatória !")
     @Column(nullable = false)
-    private Date dataPublicacao;
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "America/Sao_Paulo")
+    private LocalDate dataPublicacao;
 
-    @NotBlank(message = "O texto do blog não pode estar vazio !")
+    @NotBlank(message = "O Texto do blog não pode estar vazio !")
     @Column(nullable = false)
-    @Size(min = 10, message = "O texto deve ter no minimo 10 caracteres !")
+    @Size(min = 10, message = "O Texto deve ter no minimo 10 caracteres !")
     private String texto;
 };

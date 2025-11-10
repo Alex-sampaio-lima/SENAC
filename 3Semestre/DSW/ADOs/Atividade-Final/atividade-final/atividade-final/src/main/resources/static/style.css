@@ -1,17 +1,14 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0; 
+    background-color: #f0f0f0;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     min-height: 100vh;
 }
 
-/* ---------------------------------- */
-/* Estilos Comuns */
-/* ---------------------------------- */
 .blog-header {
     width: 100%;
     max-width: 600px;
@@ -27,22 +24,23 @@ body {
 }
 
 .blog-content {
+    display: flex;
+    flex-direction: column;
     width: 90%;
-    max-width: 600px; 
-    border: 1px solid #ccc; /* Borda do conteúdo principal */
+    max-width: 600px;
+    border: 1px solid #ccc;
     background-color: white;
     padding: 20px;
     box-sizing: border-box;
     margin-bottom: 20px;
+    gap: 20px;
 }
 
 .hidden {
-    display: none; /* Classe crucial para ocultar um dos blocos */
+    display: none;
 }
 
-/* ---------------------------------- */
-/* Estilos do FORMULÁRIO (new-post-form) */
-/* ---------------------------------- */
+
 .new-post-form h2 {
     font-size: 18px;
     font-weight: bold;
@@ -67,46 +65,48 @@ body {
     margin-bottom: 5px;
 }
 
-/* Campos de Título, Autor, Data */
+.posts-list {
+    flex-direction: column-reverse;
+}
+
 .post-form input[type="text"],
 .post-form input[type="date"] {
     padding: 8px 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 14px;
-    width: 100%; /* Ocupa a largura total da linha */
+    width: 100%;
+
     box-sizing: border-box;
 }
 
-/* Campo de Texto (Textarea) */
+
 .post-form textarea {
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 8px; /* Borda mais arredondada como na imagem */
+    border-radius: 8px;
+
     font-size: 14px;
     resize: vertical;
-    min-height: 150px; 
+    min-height: 150px;
     width: 100%;
     box-sizing: border-box;
 }
 
-/* Botão Salvar */
 .btn-save {
     margin-top: 20px;
     padding: 10px 30px;
     border: none;
-    background-color: #4a90e2; /* Azul */
+    background-color: #4a90e2;
     color: white;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    align-self: center; /* Centraliza o botão */
+    align-self: center;
 }
 
 
-/* ---------------------------------- */
-/* Estilos da LISTA DE POSTS (posts-list) - Reutilizados do código anterior */
-/* ---------------------------------- */
+
 
 .post {
     border: 1px solid #ccc;
@@ -148,7 +148,7 @@ body {
 }
 
 .tag-nao-publicado {
-    background-color: #ff8c00; 
+    background-color: #ff8c00;
 }
 
 .post-actions {
@@ -166,16 +166,17 @@ body {
 }
 
 .btn-alterar {
-    background-color: #4a90e2; 
+    background-color: #4a90e2;
 }
 
 .btn-excluir {
-    background-color: #d0021b; 
+    background-color: #d0021b;
 }
 
 .new-post-area {
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .btn-new-post {
@@ -190,19 +191,17 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* ---------------------------------- */
-/* Rodapé */
-/* ---------------------------------- */
+
 .blog-footer {
     width: 100%;
-    max-width: 640px; 
+    max-width: 640px;
     background-color: #dddddd;
     color: #000;
     text-align: center;
     padding: 10px 0;
     font-size: 14px;
     border-radius: 10px;
-    position: fixed; 
+    position: fixed;
     bottom: 0;
-    border-top: 1px solid #ccc; 
+    border-top: 1px solid #ccc;
 }

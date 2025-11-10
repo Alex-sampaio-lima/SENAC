@@ -38,7 +38,7 @@ public class BlogController {
         return ResponseEntity.ok().body(blogService.getAll());
     };
 
-    @PostMapping("postar")
+    @PostMapping
     public ResponseEntity<Blog> newPost(@RequestBody Blog novoBlog) {
         return ResponseEntity.status(HttpStatus.CREATED).body(blogService.create(novoBlog));
     };
@@ -54,5 +54,4 @@ public class BlogController {
         blogService.delete(id);
         return ResponseEntity.noContent().build();
     };
-
 };

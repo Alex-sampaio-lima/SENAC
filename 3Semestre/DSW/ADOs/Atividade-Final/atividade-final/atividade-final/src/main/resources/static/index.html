@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog - Inclusão de Postagem</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
 </head>
 
 <body>
@@ -37,41 +40,16 @@
                     <textarea id="texto" name="texto" rows="10" required></textarea>
                 </div>
 
-                <button type="submit" class="btn-save">Salvar</button>
+                <button type="submit" class="btn-save" onclick="salvarPost()">Salvar</button>
             </form>
         </section>
 
         <section class="posts-list">
-            <article class="post published">
-                <!-- <section class="post-info">
-                    <h2>Como viver bem</h2>
-                    <p><strong>Autor:</strong> Fulano da Silva</p>
-                    <p><strong>Publicado em:</strong> 31/10/2025</p>
-                </section>
-                <p class="post-summary">Veja neste texto dicas de como viver bem</p>
-                <div class="post-actions">
-                    <button class="btn-action btn-alterar">Alterar</button>
-                    <button class="btn-action btn-excluir">Excluir</button>
-                </div>
-            </article>
 
-            <article class="post unpublished">
-                <section class="post-info">
-                    <h2>20 Dicas para falar bem</h2>
-                    <p><strong>Autor:</strong> Ciclano de Souza</p>
-                    <p><strong>Publicado em:</strong> 02/12/2025</p>
-                    <span class="status-tag tag-nao-publicado">NÃO PUBLICADO</span>
-                </section>
-                <p class="post-summary">Aqui estão 20 dicas para você falar melhor em público</p>
-                <div class="post-actions">
-                    <button class="btn-action btn-alterar">Alterar</button>
-                    <button class="btn-action btn-excluir">Excluir</button>
-                </div>
-            </article> -->
 
-                <div class="new-post-area">
-                    <button class="btn-new-post" id="show-form-btn">Incluir nova publicação</button>
-                </div>
+            <div class="new-post-area">
+                <button class="btn-new-post" id="show-form-btn">Incluir nova publicação</button>
+            </div>
         </section>
     </main>
 
