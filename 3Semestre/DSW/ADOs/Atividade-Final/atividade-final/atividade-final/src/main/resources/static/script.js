@@ -1,7 +1,7 @@
 const API_URL = "http://localhost:8080/blog";
-let postAtualId = null; // para saber qual post está sendo alterado
+let postAtualId = null;
 
-// 1️⃣ Carrega os posts ao abrir a página
+// Carrega os posts ao abrir a página
 document.addEventListener("DOMContentLoaded", carregarPosts);
 
 // Função principal para buscar todos os posts
@@ -16,7 +16,7 @@ async function carregarPosts() {
     }
 }
 
-// 2️⃣ Mostra os posts no HTML
+// Mostra os posts no HTML
 function mostrarPosts(posts) {
     const lista = document.querySelector(".posts-list");
     const newPostArea = lista.querySelector(".new-post-area");
@@ -25,11 +25,21 @@ function mostrarPosts(posts) {
     posts.forEach(post => {
         const artigo = document.createElement("article");
         artigo.classList.add("post", "published");
+
+        const dataPublicacao = new Date(post.dataPublicacao);
+        const hoje = new Date();
+        const isNaoPublicado = dataPublicacao > hoje;
+
+        if (isNaoPublicado) {
+            artigo.classList.add("nao-publicado");
+        };
+
         artigo.innerHTML = `
       <section class="post-info">
           <h2>${post.titulo}</h2>
           <p><strong>Autor:</strong> ${post.autor}</p>
           <p><strong>Publicado em:</strong> ${new Date(post.dataPublicacao).toLocaleDateString("pt-BR")}</p>
+           ${isNaoPublicado ? '<span class="status-tag tag-nao-publicado">NÃO PUBLICADO</span>' : ''}
       </section>
       <p class="post-summary">${post.texto}</p>
       <div class="post-actions">
@@ -43,13 +53,21 @@ function mostrarPosts(posts) {
     // Recoloca o botão de nova publicação
     if (newPostArea) lista.appendChild(newPostArea);
 
-    // Adiciona eventos aos botões "Alterar"
+    // Aqui estou adicionando eventos aos botões "Alterar"
     document.querySelectorAll(".btn-alterar").forEach(botao => {
         botao.addEventListener("click", () => abrirFormularioAlteracao(botao.dataset.id));
     });
-}
 
-// 3️⃣ Abre o formulário preenchido com os dados do post
+    document.querySelectorAll(".btn-excluir").forEach(botao => {
+        botao.addEventListener("click", (e) => {
+            const id = e.target.dataset.id;
+            const titulo = e.target.closest('.post').querySelector('h2').textContent;
+            mostrarModalConfirmacao(id, titulo);
+        });
+    });
+};
+
+// Abre o formulário preenchido com os dados do post
 async function abrirFormularioAlteracao(id) {
     try {
         const resposta = await fetch(`${API_URL}/${id}`);
@@ -76,7 +94,7 @@ async function abrirFormularioAlteracao(id) {
     };
 };
 
-// 4️⃣ Lida com o clique em "Salvar" no formulário
+// Lida com o clique em "Salvar" no formulário
 // document.querySelector(".post-form").addEventListener("submit", async (e) => {
 //     e.preventDefault();
 
@@ -131,8 +149,6 @@ async function abrirFormularioAlteracao(id) {
 //     carregarPosts();
 // });
 
-
-// Função principal: valida e salva o post
 async function salvarPost(e) {
     e.preventDefault();
 
@@ -143,8 +159,7 @@ async function salvarPost(e) {
         texto: document.getElementById("texto").value.trim()
     };
 
-    // 🔎 Validações simples
-    if (!validarPost(post)) return; // se inválido, para aqui
+    if (!validarPost(post)) return;
 
     const metodo = postAtualId ? "PUT" : "POST";
     const url = postAtualId ? `${API_URL}/${postAtualId}` : API_URL;
@@ -163,8 +178,9 @@ async function salvarPost(e) {
 
         mostrarToast("Publicação salva com sucesso!", "sucesso");
         document.querySelector(".new-post-form").classList.add("hidden");
+        document.querySelector(".posts-list").classList.remove("hidden");
         postAtualId = null;
-        carregarPosts();
+        await carregarPosts();
 
     } catch (erro) {
         mostrarToast("Erro ao salvar: " + erro.message, "erro");
@@ -191,10 +207,10 @@ function validarPost(post) {
     if (!post.texto || post.texto.length < 10) {
         mostrarToast("O texto deve ter no mínimo 10 caracteres!", "erro");
         return false;
-    }
+    };
 
     return true;
-}
+};
 
 function mostrarToast(mensagem, tipo = "sucesso") {
     Toastify({
@@ -204,9 +220,62 @@ function mostrarToast(mensagem, tipo = "sucesso") {
         position: "right",
         backgroundColor: tipo === "erro" ? "#dc3545" : "#28a745"
     }).showToast();
-}
+};
 
 document.querySelector(".post-form").addEventListener("submit", salvarPost);
+
+// Função para mostrar modal de confirmação
+function mostrarModalConfirmacao(id, titulo) {
+    const modalOverlay = document.createElement('div');
+    modalOverlay.className = 'modal-overlay';
+
+    modalOverlay.innerHTML = `
+        <div class="modal-content">
+            <h3>Confirmar Exclusão</h3>
+            <p>Deseja excluir a publicação "<strong>${titulo}</strong>" - ID ${id}?</p>
+            <div class="modal-actions">
+                <button class="btn-confirm btn-yes" data-id="${id}">SIM</button>
+                <button class="btn-confirm btn-no">NÃO</button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modalOverlay);
+
+    modalOverlay.querySelector('.btn-yes').addEventListener('click', () => {
+        excluirPost(id);
+        document.body.removeChild(modalOverlay);
+    });
+
+    modalOverlay.querySelector('.btn-no').addEventListener('click', () => {
+        document.body.removeChild(modalOverlay);
+    });
+
+    modalOverlay.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) {
+            document.body.removeChild(modalOverlay);
+        };
+    });
+};
+
+async function excluirPost(id) {
+    try {
+        const resposta = await fetch(`${API_URL}/${id}`, {
+            method: 'DELETE'
+        });
+
+        if (!resposta.ok) {
+            throw new Error('Erro ao excluir post');
+        }
+
+        mostrarToast('Publicação excluída com sucesso!', 'sucesso');
+        carregarPosts();
+
+    } catch (erro) {
+        console.error('Erro ao excluir:', erro);
+        mostrarToast('Erro ao excluir publicação', 'erro');
+    }
+}
 
 
 

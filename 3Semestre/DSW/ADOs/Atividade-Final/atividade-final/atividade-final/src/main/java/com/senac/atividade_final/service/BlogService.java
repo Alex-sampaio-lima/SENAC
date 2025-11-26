@@ -38,10 +38,17 @@ public class BlogService {
     };
 
     private void updateBlog(Optional<Blog> novoBlog, Blog blog) {
-        novoBlog.get().setTitulo(blog.getTitulo());
-        novoBlog.get().setAutor(blog.getAutor());
-        novoBlog.get().setDataPublicacao(blog.getDataPublicacao());
-        novoBlog.get().setTexto(blog.getTexto());
-    };
 
+        if (novoBlog.isPresent()) {
+            Blog blogExistente = novoBlog.get();
+            blogExistente.setTitulo(blog.getTitulo());
+            blogExistente.setAutor(blog.getAutor());
+            blogExistente.setDataPublicacao(blog.getDataPublicacao());
+            blogExistente.setTexto(blog.getTexto());
+
+            repository.save(blogExistente);
+        } else {
+            throw new RuntimeException("Blog não encontrado !");
+        }
+    };
 };
