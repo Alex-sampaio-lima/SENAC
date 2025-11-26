@@ -58,6 +58,8 @@ function mostrarPosts(posts) {
         botao.addEventListener("click", () => abrirFormularioAlteracao(botao.dataset.id));
     });
 
+    // document.querySelector(".posts-list").classList.add("hidden");
+
     document.querySelectorAll(".btn-excluir").forEach(botao => {
         botao.addEventListener("click", (e) => {
             const id = e.target.dataset.id;
@@ -85,7 +87,7 @@ async function abrirFormularioAlteracao(id) {
 
         // Mostra o formulário
         document.querySelector(".new-post-form").classList.remove("hidden");
-
+        document.querySelector(".posts-list").classList.add("hidden");
         // Salva o ID atual
         postAtualId = id;
 
@@ -93,61 +95,6 @@ async function abrirFormularioAlteracao(id) {
         console.error("Erro ao carregar post:", erro);
     };
 };
-
-// Lida com o clique em "Salvar" no formulário
-// document.querySelector(".post-form").addEventListener("submit", async (e) => {
-//     e.preventDefault();
-
-//     const post = {
-//         titulo: document.getElementById("titulo").value,
-//         autor: document.getElementById("autor").value,
-//         dataPublicacao: document.getElementById("data").value,
-//         texto: document.getElementById("texto").value
-//     };
-
-//     if (!post.titulo) {
-//         alert("O título deve ser");
-//     };
-
-//     if (!post.texto) {
-//         alert("O texto tem qu");
-//     }
-
-//     const metodo = postAtualId ? "PUT" : "POST";
-//     const url = postAtualId ? `${API_URL}/${postAtualId}` : API_URL;
-//     console.log(`Esse é o método dessa porra ${metodo}`);
-//     try {
-//         const resposta = await fetch(url, {
-//             method: metodo,
-//             headers: { "Content-Type": "application/json" },
-//             body: JSON.stringify(post)
-//         });
-
-//         if (!resposta.ok) throw new Error("Erro ao salvar o post");
-
-//         Toastify({
-//             text: "Publicação salva com sucesso!",
-//             duration: 4000,
-//             gravity: "top",
-//             position: "right",
-//             backgroundColor: "#28a745"
-//         }).showToast();
-//         document.querySelector(".new-post-form").classList.add("hidden");
-//         postAtualId = null;
-//         carregarPosts();
-
-//     } catch (erro) {
-//         Toastify({
-//             text: "Erro ao salvar: " + erro.join(", "),
-//             duration: 5000,
-//             gravity: "top",
-//             position: "right",
-//             backgroundColor: "#dc3545"
-//         }).showToast();
-//         console.error("Erro ao salvar:", erro);
-//     }
-//     carregarPosts();
-// });
 
 async function salvarPost(e) {
     e.preventDefault();
