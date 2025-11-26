@@ -85,10 +85,10 @@ async function abrirFormularioAlteracao(id) {
         // Atualiza o título
         document.querySelector(".new-post-form h2").innerText = `Alterar publicação - ID ${id}`;
 
-        // Mostra o formulário
+        
         document.querySelector(".new-post-form").classList.remove("hidden");
         document.querySelector(".posts-list").classList.add("hidden");
-        // Salva o ID atual
+
         postAtualId = id;
 
     } catch (erro) {
