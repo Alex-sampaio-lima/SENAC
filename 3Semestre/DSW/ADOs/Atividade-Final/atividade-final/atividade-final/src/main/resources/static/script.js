@@ -8,7 +8,10 @@ document.addEventListener("DOMContentLoaded", carregarPosts);
 async function carregarPosts() {
     try {
         const resposta = await fetch(API_URL);
-        if (!resposta.ok) throw new Error("Erro ao buscar posts");
+
+        if (!resposta.ok) {
+            throw new Error("Erro ao buscar posts")
+        };
         const posts = await resposta.json();
         mostrarPosts(posts);
     } catch (erro) {
@@ -75,12 +78,16 @@ function mostrarPosts(posts) {
 async function abrirFormularioAlteracao(id) {
     try {
         const resposta = await fetch(`${API_URL}/${id}`);
-        if (!resposta.ok) throw new Error("Erro ao buscar post");
+        if (!resposta.ok) {
+            throw new Error("Erro ao buscar post");
+        };
         const post = await resposta.json();
 
         document.getElementById("titulo").value = post.titulo;
         document.getElementById("autor").value = post.autor;
         document.getElementById("data").value = post.dataPublicacao;
+        console.log("OLHA AQUI CORNO !" + post.dataPublicacao);
+
         document.getElementById("texto").value = post.texto;
 
         // Aqui eu vou atualizar o título
@@ -106,7 +113,9 @@ async function salvarPost(e) {
         texto: document.getElementById("texto").value.trim()
     };
 
-    if (!validarPost(post)) return;
+    if (!validarPost(post)) {
+        mostrarToast("Dados inválidos", "erro")
+    };
 
     const metodo = postAtualId ? "PUT" : "POST";
     const url = postAtualId ? `${API_URL}/${postAtualId}` : API_URL;

@@ -17,7 +17,6 @@ public class DataInitializer {
         if (blogRepository.count() == 0) {
             criarDadosIniciais();
         }
-        ;
     };
 
     private void criarDadosIniciais() {
