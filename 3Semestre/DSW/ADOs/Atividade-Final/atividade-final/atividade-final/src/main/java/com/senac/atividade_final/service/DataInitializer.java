@@ -1,6 +1,6 @@
 package com.senac.atividade_final.service;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -28,7 +28,7 @@ public class DataInitializer {
             Blog blog = new Blog();
             blog.setTitulo("20 Dicas para falar bem");
             blog.setAutor("Alexsander Sampaio Lima");
-            blog.setDataPublicacao(LocalDate.now());
+            blog.setDataPublicacao(new Date());
             blog.setTexto("Aqui estão 20 dicas para você falar melhor em público.");
 
             blogRepository.save(blog);

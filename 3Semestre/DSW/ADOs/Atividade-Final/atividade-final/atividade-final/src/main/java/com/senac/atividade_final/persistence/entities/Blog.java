@@ -1,7 +1,7 @@
 package com.senac.atividade_final.persistence.entities;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -41,11 +41,10 @@ public class Blog implements Serializable {
     @Column(nullable = false)
     private String autor;
 
-    // @JsonFormat(pattern = "yyyy-MM-dd")
     @NotNull(message = "A Data de publicação é obrigatória !")
     @Column(nullable = false)
-    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "America/Sao_Paulo")
-    private LocalDate dataPublicacao;
+    @JsonFormat(timezone = "America/Sao_Paulo")
+    private Date dataPublicacao; // Mudou para Date
 
     @NotBlank(message = "O Texto do blog não pode estar vazio !")
     @Column(nullable = false)
