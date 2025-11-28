@@ -51,9 +51,11 @@ function mostrarPosts(posts) {
     });
 
     // Recoloca o botão de nova publicação
-    if (newPostArea) lista.appendChild(newPostArea);
+    if (newPostArea) {
+        lista.appendChild(newPostArea);
+    };
 
-    // Aqui estou adicionando eventos aos botões "Alterar"
+    // Aqui estou adicionando eventos aos botões de alteração
     document.querySelectorAll(".btn-alterar").forEach(botao => {
         botao.addEventListener("click", () => abrirFormularioAlteracao(botao.dataset.id));
     });
@@ -69,22 +71,20 @@ function mostrarPosts(posts) {
     });
 };
 
-// Abre o formulário preenchido com os dados do post
+// Pega os dados da banco e insere no form, para poder atualizar
 async function abrirFormularioAlteracao(id) {
     try {
         const resposta = await fetch(`${API_URL}/${id}`);
         if (!resposta.ok) throw new Error("Erro ao buscar post");
         const post = await resposta.json();
 
-        // Preenche o formulário
         document.getElementById("titulo").value = post.titulo;
         document.getElementById("autor").value = post.autor;
-        document.getElementById("data").value = post.dataPublicacao; // formato yyyy-MM-dd
+        document.getElementById("data").value = post.dataPublicacao;
         document.getElementById("texto").value = post.texto;
 
-        // Atualiza o título
+        // Aqui eu vou atualizar o título
         document.querySelector(".new-post-form h2").innerText = `Alterar publicação - ID ${id}`;
-
 
         document.querySelector(".new-post-form").classList.remove("hidden");
         document.querySelector(".posts-list").classList.add("hidden");
@@ -120,7 +120,7 @@ async function salvarPost(e) {
 
         if (!resposta.ok) {
             const erroMsg = await resposta.text();
-            throw new Error(erroMsg || "Erro ao salvar o post");
+            throw new Error("Erro ao salvar o post" + erroMsg);
         };
 
         mostrarToast("Publicação salva com sucesso!", "sucesso");

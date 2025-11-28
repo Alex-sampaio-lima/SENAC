@@ -24,7 +24,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-@EqualsAndHashCode(of = "id") // utilizando apenas para não precisar criar o hashCode e equals manualmente
+@EqualsAndHashCode(of = "id") // utilizando apenas para não precisar criar o hashCode e equals na mão
 
 @Entity
 @Table(name = "tb_blog")
@@ -44,7 +44,7 @@ public class Blog implements Serializable {
     @NotNull(message = "A Data de publicação é obrigatória !")
     @Column(nullable = false)
     @JsonFormat(timezone = "America/Sao_Paulo")
-    private Date dataPublicacao; // Mudou para Date
+    private Date dataPublicacao;
 
     @NotBlank(message = "O Texto do blog não pode estar vazio !")
     @Column(nullable = false)

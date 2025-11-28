@@ -1,11 +1,8 @@
 package com.senac.atividade_final.service;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.senac.atividade_final.persistence.entities.Blog;
 import com.senac.atividade_final.persistence.repository.BlogRepository;
 
 import jakarta.annotation.PostConstruct;
@@ -24,18 +21,18 @@ public class DataInitializer {
     };
 
     private void criarDadosIniciais() {
-        try {
-            Blog blog = new Blog();
-            blog.setTitulo("20 Dicas para falar bem");
-            blog.setAutor("Alexsander Sampaio Lima");
-            blog.setDataPublicacao(new Date());
-            blog.setTexto("Aqui estão 20 dicas para você falar melhor em público.");
+        // try {
+        // Blog blog = new Blog();
+        // blog.setTitulo("20 Dicas para falar bem");
+        // blog.setAutor("Alexsander Sampaio Lima");
+        // blog.setDataPublicacao(new Date());
+        // blog.setTexto("Aqui estão 20 dicas para você falar melhor em público.");
 
-            blogRepository.save(blog);
+        // blogRepository.save(blog);
 
-            System.out.println("Dados iniciais criados com sucesso!");
-        } catch (Exception e) {
-            System.err.println("Erro ao criar dados iniciais: " + e.getMessage());
-        }
+        // System.out.println("Dados iniciais criados com sucesso!");
+        // } catch (Exception e) {
+        // System.err.println("Erro ao criar dados iniciais: " + e.getMessage());
+        // }
     };
 };
