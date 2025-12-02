@@ -104,8 +104,6 @@ async function abrirFormularioAlteracao(id) {
 };
 
 async function salvarPost(e) {
-    e.preventDefault();
-
     const post = {
         titulo: document.getElementById("titulo").value.trim(),
         autor: document.getElementById("autor").value.trim(),
@@ -115,7 +113,9 @@ async function salvarPost(e) {
 
     if (!validarPost(post)) {
         mostrarToast("Dados inválidos", "erro")
+        return;
     };
+    e.preventDefault();
 
     const metodo = postAtualId ? "PUT" : "POST";
     const url = postAtualId ? `${API_URL}/${postAtualId}` : API_URL;
@@ -145,27 +145,30 @@ async function salvarPost(e) {
 };
 
 function validarPost(post) {
+    let valida = true;
+
     if (!post.titulo) {
         mostrarToast("O título é obrigatório!", "erro");
-        return false;
+        valida = false;
     }
 
     if (!post.autor) {
         mostrarToast("O autor é obrigatório!", "erro");
-        return false;
+        valida = false;
     }
 
     if (!post.dataPublicacao) {
         mostrarToast("A data de publicação é obrigatória!", "erro");
-        return false;
+        valida = false;
     }
 
     if (!post.texto || post.texto.length < 10) {
         mostrarToast("O texto deve ter no mínimo 10 caracteres!", "erro");
-        return false;
-    };
+        valida = false;
+    }
 
-    return true;
+    console.log(valida);
+    return valida;
 };
 
 function mostrarToast(mensagem, tipo = "sucesso") {
@@ -174,11 +177,15 @@ function mostrarToast(mensagem, tipo = "sucesso") {
         duration: 4000,
         gravity: "top",
         position: "right",
-        backgroundColor: tipo === "erro" ? "#dc3545" : "#28a745"
+        style: {
+            background: tipo === "erro" ? "#dc3545" : "#28a745"
+        },
     }).showToast();
 };
 
-document.querySelector(".post-form").addEventListener("submit", salvarPost);
+document.querySelector(".post-form").addEventListener("submit", (e) => {
+    salvarPost(e);
+});
 
 // Função para mostrar modal de confirmação
 function mostrarModalConfirmacao(id, titulo) {
@@ -222,7 +229,7 @@ async function excluirPost(id) {
 
         if (!resposta.ok) {
             throw new Error('Erro ao excluir post');
-        }
+        };
 
         mostrarToast('Publicação excluída com sucesso!', 'sucesso');
         carregarPosts();
@@ -230,37 +237,8 @@ async function excluirPost(id) {
     } catch (erro) {
         console.error('Erro ao excluir:', erro);
         mostrarToast('Erro ao excluir publicação', 'erro');
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    };
+};
 
 document.addEventListener('DOMContentLoaded', () => {
     const showFormBtn = document.getElementById('show-form-btn');
@@ -278,5 +256,5 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector(".new-post-form h2").innerText = "Incluir nova publicação";
             postAtualId = null;
         });
-    }
+    };
 });

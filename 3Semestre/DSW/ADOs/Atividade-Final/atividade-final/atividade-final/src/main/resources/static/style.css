@@ -261,19 +261,23 @@ body {
 }
 
 .btn-yes {
-    background-color: #d0021b;
-    color: white;
-}
-
-.btn-yes:hover {
-    background-color: #a0021b;
-}
-
-.btn-no {
     background-color: #4a90e2;
     color: white;
 }
 
-.btn-no:hover {
+.btn-yes:hover {
     background-color: #357abd;
+    border-radius: 400px;
+    transition: 10s;
+}
+
+.btn-no {
+    background-color: #d0021b;
+    color: white;
+}
+
+.btn-no:hover {
+    background-color: #a0021b;
+    border-radius: 400px;
+    transition: 10s;
 }
