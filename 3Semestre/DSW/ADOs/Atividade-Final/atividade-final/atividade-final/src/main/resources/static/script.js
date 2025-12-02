@@ -63,8 +63,6 @@ function mostrarPosts(posts) {
         botao.addEventListener("click", () => abrirFormularioAlteracao(botao.dataset.id));
     });
 
-    // document.querySelector(".posts-list").classList.add("hidden");
-
     document.querySelectorAll(".btn-excluir").forEach(botao => {
         botao.addEventListener("click", (e) => {
             const id = e.target.dataset.id;
