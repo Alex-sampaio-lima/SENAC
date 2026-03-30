@@ -6,7 +6,8 @@ public class PessoaFisica extends Pessoa {
         return "PessoaFisica [nome=" + nome + ", cpf=" + cpf + "]";
     };
 
-    public PessoaFisica(long cpf) {
+    public PessoaFisica(String nome, long cpf) {
+        super(nome);
         this.cpf = cpf;
     };
 

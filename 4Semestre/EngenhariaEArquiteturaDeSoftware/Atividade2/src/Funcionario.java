@@ -6,11 +6,13 @@ public class Funcionario extends PessoaFisica {
         return "Funcionario [nome=" + nome + ", cpf=" + cpf + ", matricula=" + matricula + "]";
     };
 
-    public Funcionario(int matricula) {
+    public Funcionario(String nome, long cpf, int matricula) {
+        super(nome, cpf);
         this.matricula = matricula;
     };
 
     public Funcionario() {
+        this.matricula = 0;
     };
 
     public int getMatricula() {

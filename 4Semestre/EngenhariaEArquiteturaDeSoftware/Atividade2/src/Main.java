@@ -4,13 +4,13 @@ public class Main {
         Pessoa p1 = new Pessoa();
         Pessoa p2 = new Pessoa("Alexsander Sampaio Lima");
         PessoaJuridica pj1 = new PessoaJuridica();
-        PessoaJuridica pj2 = new PessoaJuridica(1234567891);
-        pj2.setNome("Ana Beatriz");
+        PessoaJuridica pj2 = new PessoaJuridica("Carlos", 1234567891);
 
         PessoaFisica pf1 = new PessoaFisica();
-        PessoaFisica pf2 = new PessoaFisica(53441);
+        PessoaFisica pf2 = new PessoaFisica("Ana Julia Silva", 534419968);
 
         Funcionario f1 = new Funcionario();
+        Funcionario f2 = new Funcionario("Maria da Silva", 534412219, 342342342);
 
         // Pessoa
         System.out.println(p1.toString());
@@ -26,5 +26,6 @@ public class Main {
 
         // Funcionário
         System.out.println(f1.toString());
+        System.out.println(f2.toString());
     };
 };

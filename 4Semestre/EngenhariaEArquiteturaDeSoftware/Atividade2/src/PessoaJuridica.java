@@ -6,7 +6,8 @@ public class PessoaJuridica extends Pessoa {
         return "PessoaJuridica [nome=" + nome + ", cnpj=" + cnpj + "]";
     };
 
-    public PessoaJuridica(long cnpj) {
+    public PessoaJuridica(String nome, long cnpj) {
+        super(nome);
         this.cnpj = cnpj;
     };
 
