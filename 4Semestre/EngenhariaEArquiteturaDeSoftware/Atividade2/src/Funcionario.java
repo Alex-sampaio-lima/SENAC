@@ -1,9 +1,9 @@
 public class Funcionario extends PessoaFisica {
-    int matricula;
+    private int matricula;
 
     @Override
     public String toString() {
-        return "Funcionario [nome=" + nome + ", cpf=" + cpf + ", matricula=" + matricula + "]";
+        return "Funcionario [nome=" + getNome() + ", cpf=" + getCpf() + ", matricula=" + matricula + "]";
     };
 
     public Funcionario(String nome, long cpf, int matricula) {

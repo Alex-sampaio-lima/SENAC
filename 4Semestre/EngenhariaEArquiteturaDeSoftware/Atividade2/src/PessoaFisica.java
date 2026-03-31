@@ -1,9 +1,9 @@
 public class PessoaFisica extends Pessoa {
-    long cpf;
+    private long cpf;
 
     @Override
     public String toString() {
-        return "PessoaFisica [nome=" + nome + ", cpf=" + cpf + "]";
+        return "PessoaFisica [nome=" + getNome() + ", cpf=" + cpf + "]";
     };
 
     public PessoaFisica(String nome, long cpf) {

@@ -1,5 +1,5 @@
 public class Pessoa {
-    String nome;
+    private String nome;
 
     @Override
     public String toString() {

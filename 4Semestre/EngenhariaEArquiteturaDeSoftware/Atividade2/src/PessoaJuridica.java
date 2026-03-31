@@ -1,9 +1,9 @@
 public class PessoaJuridica extends Pessoa {
-    long cnpj;
+    private long cnpj;
 
     @Override
     public String toString() {
-        return "PessoaJuridica [nome=" + nome + ", cnpj=" + cnpj + "]";
+        return "PessoaJuridica [nome=" + getNome() + ", cnpj=" + cnpj + "]";
     };
 
     public PessoaJuridica(String nome, long cnpj) {
